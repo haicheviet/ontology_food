@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
 from owlready2 import *
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname("__file__"), '..'))
+current_dir = os.path.dirname("__file__")
+current_dir = current_dir if current_dir is not '' else '.'
+data_dir_path = current_dir + '/rdf.owl' # directory to scan for any txt files
+
+
 
 class SparqlQueries:
     def __init__(self):
         my_world = World()
-        my_world.get_ontology("file://D:/ontology_food/rdf.owl").load() #path to the owl file is given here
+        my_world.get_ontology("file://%s"%data_dir_path).load() #path to the owl file is given here
         sync_reasoner(my_world)  #reasoner is started and synchronized here
         self.graph = my_world.as_rdflib_graph()
 
