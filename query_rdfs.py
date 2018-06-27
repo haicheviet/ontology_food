@@ -97,5 +97,58 @@ def check_individual_exist(name):
             break
     return flag
 
-if __name__ == "main":
-    print(BMI_level_calc('0.00-15.99'))
+# def ListStructureOfBreakFast():
+    
+def avoided_group_food(illness):
+    illness = illness.replace(" ", "_")
+    group_food = []
+    result = []
+    print(illness)
+    for content in search:
+        if content["label"] == illness and content["p"] == "Avoid_Group_Food":
+            group_food .append(content["o"])
+    for food_item in group_food:
+        for content in search:
+            if content["label"] == food_item and content["p"] == "Has_Food":
+                result.append(content["o"])
+    return result
+
+def needed_group_food(illness):
+    illness = illness.replace(" ", "_")
+    group_food = []
+    result = []
+    print(illness)
+    for content in search:
+        if content["label"] == illness and content["p"] == "Need_Group_Food":
+            group_food .append(content["o"])
+        if content["label"] == illness and content["p"] == "Need_Food":
+            result.append(content["o"])
+    for food_item in group_food:
+        for content in search:
+            if content["label"] == food_item and content["p"] == "Has_Food":
+                result.append(content["o"])
+    return result
+
+def limit_food(illness):
+    illness = illness.replace(" ", "_")
+    result = []
+    print(illness)
+    for content in search:
+        if content["label"] == illness and content["p"] == "Limit_Food":
+            result.append(content["o"])
+    return result
+
+def all_food():
+    types = []
+    result = []
+    for content in search:
+        if content["p"] == "subClassOf" and content["o"] == "Food_Items":
+            types.append(content["label"])
+    for content in search:
+        if content["p"] == "type" and (content["o"] in types):
+            result.append(content["label"])
+    return result
+
+print(all_food())
+if __name__ == "__main__":
+    print(all_food())
