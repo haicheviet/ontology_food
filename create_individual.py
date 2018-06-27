@@ -1,5 +1,5 @@
 from query_rdfs import check_individual_exist
-import
+
 
 
 #
@@ -34,22 +34,21 @@ def insert_individual_food(
 
 def insert_individual_nutrients(
         Name_of_nutrients, Has_effect, Has_exceed_effect,
-
+        Has_weight, Has_BMI_Level, Has_Activity_Level_Value
+        Has_Menu=None):
 
 def insert_individual_custormer(
         Name_of_Cus, Has_id, Has_height,
         Has_lackof_effect, Has_needed_amount):
-        Has_weight, Has_BMI_Level, Has_Activity_Level_Value
-        Has_Menu=None):
-
+        
 
 def insert_individual_health(
         Name_of_object, Has_food_needed, Has_food_avoided,
         Has_food_not_much, Has_needed_amount):
 
-    #
-    # ─── INPUT DATA AND CHECKING ────────────────────────────────────────────────────
-    #
+#
+# ─── INPUT DATA AND CHECKING ────────────────────────────────────────────────────
+#
 
 
 def input_data():

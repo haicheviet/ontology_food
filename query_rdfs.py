@@ -4,7 +4,7 @@ import os
 import json
 
 
-with open("reuslt_after_clean.json", 'r')as f:
+with open("result_after_clean.json", 'r')as f:
     search = json.load(f)
 
 #
@@ -46,10 +46,10 @@ def has_value(label):
     if result["type"] == "Physical_Activity_Level":
         for content in text_tamp_next:
             if content["label"] == label and content["p"] == "Has_Activity_Level_Range":
-                result["range"] = content['o']
-    if result["type"] == "Body_Mass_Index_Range":
+                result["value"] = content['o']
+    elif result["type"] == "Body_Mass_Index_Range":
         for content in text_tamp_next:
-            if content["label"] == label and content["p"] == "Has_Body_Mass_Index_Level_Value":
+            if content["label"] == label and content["p"] == "Has_Body_Mass_Index_Level":
                 result["value"] = content['o']
     return result
 
@@ -65,7 +65,10 @@ def BMI_range_calc(value):
     for content in search:
         if content['p'] == "type" and content['o'] == 'Body_Mass_Index_Range':
             tamp = content["label"]
-            result.append(list(map(float, tamp.split("-"))))
+            try:
+                result.append(list(map(float, tamp.split("-"))))
+            except:
+                pass
     for content in result:
         if content[0] <= value <= content[1]:
             tamp = content
@@ -94,5 +97,5 @@ def check_individual_exist(name):
             break
     return flag
 
-
-print(check_individual_exist("Nhật"))
+if __name__ == "main":
+    print(BMI_level_calc('0.00-15.99'))

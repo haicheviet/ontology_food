@@ -272,6 +272,12 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Has_lack_of_sb_effect -->
+
+    <DatatypeProperty rdf:about="&ont;Has_lack_of_sb_effect"/>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Has_processing -->
 
     <DatatypeProperty rdf:about="&ont;Has_processing">

@@ -1,0 +1,9 @@
+﻿bmr,nu=655+(9.6*weight)+(1.8*height)-(4.7*age)
+bmr,nam=66+(13.75 *weight)+(5*height)-(6.8*age)
+bmi=weight/(height*height)
+calo=BMRvalue*PhysicalActiveValue
+1.2:Quá ít hoạt động
+1.375:Ít hoạt động
+1.55:Hoạt động vừa
+1.725:Hoạt động nhiều
+1.9:Hoạt động cường độ cao
