@@ -287,6 +287,14 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Has_structure -->
+
+    <DatatypeProperty rdf:about="&ont;Has_structure">
+        <rdfs:domain rdf:resource="&ont;StructureOfMeal"/>
+    </DatatypeProperty>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Has_suitable_time -->
 
     <DatatypeProperty rdf:about="&ont;Has_suitable_time">
@@ -556,6 +564,12 @@
     <Class rdf:about="&ont;Seafood">
         <rdfs:subClassOf rdf:resource="&FoodKB;Food_Items"/>
     </Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfMeal -->
+
+    <Class rdf:about="&ont;StructureOfMeal"/>
     
 
 
@@ -1563,6 +1577,40 @@
 
     <NamedIndividual rdf:about="&ont;Selenium">
         <rdf:type rdf:resource="&FoodKB;Minerals"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfBreakfast -->
+
+    <NamedIndividual rdf:about="&ont;StructureOfBreakfast">
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Cereal,1];[Dairy_Products,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch,1];[Egg_Products,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch,1];[SeaFood,1];[Vegetable{Salad|Cà_chua|Dưa_leo|Cà_rốt},2]</ont:Has_structure>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfDinner -->
+
+    <NamedIndividual rdf:about="&ont;StructureOfDinner">
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Vegetable,1];[Egg_Products,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Vegetable,2];[Egg_Products,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Dairy_Product,1];[Cereal,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Vegetable,1];[Fruit,1]</ont:Has_structure>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfLunch -->
+
+    <NamedIndividual rdf:about="&ont;StructureOfLunch">
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Meat,1];[SeaFood,1];[Vegetable,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Meat,1];[Vegetable,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Dairy_Products,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Vegetable,2];[Egg_Products,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Egg_Products,1];[Vegetable];[Fruit]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Vegetable,1];[Dairy_Products,1]</ont:Has_structure>
     </NamedIndividual>
     
 
