@@ -2,6 +2,7 @@
 import sys
 import os
 import json
+import re
 
 
 with open("result_after_clean.json", 'r')as f:
@@ -11,9 +12,8 @@ with open("result_after_clean.json", 'r')as f:
 # ─── QUERY DEF ──────────────────────────────────────────────────────────────────
 #
 
+
 # {'label': 'Táo', 'type': 'Fruits', 'Has_calo': '52'}
-
-
 def food_attribute(label):
     result = {}
     result["label"] = label
@@ -98,7 +98,8 @@ def check_individual_exist(name):
     return flag
 
 # def ListStructureOfBreakFast():
-    
+
+
 def avoided_group_food(illness):
     illness = illness.replace(" ", "_")
     group_food = []
@@ -112,6 +113,7 @@ def avoided_group_food(illness):
             if content["label"] == food_item and content["p"] == "Has_Food":
                 result.append(content["o"])
     return result
+
 
 def needed_group_food(illness):
     illness = illness.replace(" ", "_")
@@ -129,6 +131,7 @@ def needed_group_food(illness):
                 result.append(content["o"])
     return result
 
+
 def limit_food(illness):
     illness = illness.replace(" ", "_")
     result = []
@@ -137,6 +140,7 @@ def limit_food(illness):
         if content["label"] == illness and content["p"] == "Limit_Food":
             result.append(content["o"])
     return result
+
 
 def all_food():
     types = []
@@ -149,5 +153,41 @@ def all_food():
             result.append(content["label"])
     return result
 
+ #[0.4,Cereal,1];[0.2,Dairy_Products,1];[0.3,Fruit,1]
+def destructure_rule_meal(content):
+    result = {}
+    food_list = re.findall(r'\[(.*?)\]',content)
+    for food_attrb in food_list:
+        food = food_attrb.split(",")
+        if "{" in food[1]:
+            food_default = food[1].split("{")
+            result["fix"] = [food_default[1][:-1], float(food[0]), int(food[2])] #return result{"fix": ["food_name", "portion", "quanity"]}
+        else:
+            result[food[1]] = [float(food[0]), int(food[2])]
+    return result
+
+def list_structure_breakfast():
+    list_rule = []
+    for content in search:
+        if content["label"] == 'StructureOfBreakfast' and content["p"] == "Has_structure":
+            print(content['o'])
+            list_rule.append(destructure_rule_meal(content["o"]))
+    return list_rule
+
+def list_structure_dinner():
+    list_rule = []
+    for content in search:
+        if content["label"] == 'StructureOfDinner' and content["p"] == "Has_structure":
+            print(content['o'])
+            list_rule.append(destructure_rule_meal(content["o"]))
+    return list_rule
+
+def list_structure_lunch():
+    list_rule = []
+    for content in search:
+        if content["label"] == 'StructureOfLunch' and content["p"] == "Has_structure":
+            list_rule.append(destructure_rule_meal(content["o"]))
+    return list_rule
+
 if __name__ == "__main__":
-    print(all_food())
+    print(list_structure_dinner())# Testing

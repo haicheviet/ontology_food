@@ -1584,9 +1584,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfBreakfast -->
 
     <NamedIndividual rdf:about="&ont;StructureOfBreakfast">
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Cereal,1];[Dairy_Products,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch,1];[Egg_Products,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch,1];[SeaFood,1];[Vegetable{Salad|Cà_chua|Dưa_leo|Cà_rốt},2]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Bơ},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
     </NamedIndividual>
     
 
@@ -1594,10 +1592,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfDinner -->
 
     <NamedIndividual rdf:about="&ont;StructureOfDinner">
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Vegetable,1];[Egg_Products,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Vegetable,2];[Egg_Products,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Dairy_Product,1];[Cereal,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Vegetable,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Bơ},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
     </NamedIndividual>
     
 
@@ -1605,12 +1600,8 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfLunch -->
 
     <NamedIndividual rdf:about="&ont;StructureOfLunch">
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Meat,1];[SeaFood,1];[Vegetable,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Meat,1];[Vegetable,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Dairy_Products,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[Poultry,1];[Vegetable,2];[Egg_Products,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Egg_Products,1];[Vegetable];[Fruit]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch{Cơm},1];[SeaFood,1];[Vegetable,1];[Dairy_Products,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Bơ},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Táo},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
     </NamedIndividual>
     
 
