@@ -149,6 +149,5 @@ def all_food():
             result.append(content["label"])
     return result
 
-print(all_food())
 if __name__ == "__main__":
     print(all_food())
