@@ -1,0 +1,15 @@
+﻿[0.4,Starch,1];[0.15,Egg_Products,1];[0.15,Fruit,1];[0.3,Dairy_Product]
+[0.2,Cereal,2];[0.35,Dairy_Products,1];[0.25,Fruit,1]
+[0.4,Starch,1];[0.2,SeaFood,1];[0.05,Vegetable{Salad|Cà_chua|Dưa_leo|Cà_rốt},2];[0.3,Dairy_Product]
+
+[0.5,Starch{Cơm},1];[0.2,Meat,1];[0.1,Vegetable,1];[0.2,Fruit,1]
+[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetable,2];[0.15,Egg_Products,1]
+[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.1,Vegetable,1];[0.25,Dairy_Products,1]
+[0.5,Starch{Cơm},1];[0.1,Meat,1];[0.1,SeaFood,1];[0.1,Vegetable,1];[0.2,Fruit,1]
+[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetable,1][0.15,Dairy_Products,1];[0.1,Fruit,1]
+[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.1,Egg_Products,1];[0.1,Vegetable,1];[0.15,Fruit,1]
+
+[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetable,2];[0.15,Egg_Products,1]
+[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.25,Dairy_Product,1];[0.1,Fruit,1]
+[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetable,1];[0.15,Egg_Products,1];[0.1,Fruit,1]
+[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.1,Vegetable,1];[0.25,Fruit,1]
