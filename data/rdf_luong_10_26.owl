@@ -252,7 +252,7 @@
 
     <DatatypeProperty rdf:about="&ont;Has_calo">
         <rdfs:domain rdf:resource="&FoodKB;Food_Items"/>
-        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
     </DatatypeProperty>
     
 
@@ -268,7 +268,10 @@
 
     <!-- http://www.co-ode.org/ontologies/ont.owl#Has_exceed_effect -->
 
-    <DatatypeProperty rdf:about="&ont;Has_exceed_effect"/>
+    <DatatypeProperty rdf:about="&ont;Has_exceed_effect">
+        <rdfs:domain rdf:resource="&FoodKB;Macro_Nutritional_Elements"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
     
 
 
@@ -283,7 +286,10 @@
 
     <!-- http://www.co-ode.org/ontologies/ont.owl#Has_lack_of_sb_effect -->
 
-    <DatatypeProperty rdf:about="&ont;Has_lack_of_sb_effect"/>
+    <DatatypeProperty rdf:about="&ont;Has_lack_of_sb_effect">
+        <rdfs:domain rdf:resource="&FoodKB;Macro_Nutritional_Elements"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
     
 
 
@@ -1936,14 +1942,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Thịt_rùa -->
-
-    <NamedIndividual rdf:about="&ont;Thịt_rùa">
-        <rdf:type rdf:resource="&FoodKB;Meat"/>
-    </NamedIndividual>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#Thịt_thỏ -->
 
     <NamedIndividual rdf:about="&ont;Thịt_thỏ">
@@ -1963,7 +1961,6 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Zinc_Kẽm"/>
         <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Copper_Đồng"/>
         <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
         <ont:Has_Nutrient rdf:resource="&ont;Niacin_B3"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pantothenic_acid_B5"/>
@@ -2106,12 +2103,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Xà_lách -->
-
-    <NamedIndividual rdf:about="&ont;Xà_lách"/>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#menu_15502179 -->
 
     <NamedIndividual rdf:about="&ont;menu_15502179">
@@ -2125,7 +2116,6 @@
         <ont:Has_Lunch rdf:resource="&ont;Thịt_heo"/>
         <ont:Has_Lunch rdf:resource="&ont;Thủy_hải_sản"/>
         <ont:Has_Breakfast rdf:resource="&ont;Xoài"/>
-        <ont:Has_Breakfast rdf:resource="&ont;Xà_lách"/>
     </NamedIndividual>
     
 
