@@ -287,14 +287,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Has_structure -->
-
-    <DatatypeProperty rdf:about="&ont;Has_structure">
-        <rdfs:domain rdf:resource="&ont;StructureOfMeal"/>
-    </DatatypeProperty>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#Has_suitable_time -->
 
     <DatatypeProperty rdf:about="&ont;Has_suitable_time">
@@ -373,14 +365,6 @@
     
 
 
-    <!-- http://websemantic.net/2013/FoodKB#Cereal -->
-
-    <Class rdf:about="&FoodKB;Cereal">
-        <rdfs:subClassOf rdf:resource="&FoodKB;Food_Items"/>
-    </Class>
-    
-
-
     <!-- http://websemantic.net/2013/FoodKB#Consumer -->
 
     <Class rdf:about="&FoodKB;Consumer">
@@ -389,9 +373,10 @@
     
 
 
-    <!-- http://websemantic.net/2013/FoodKB#Dairy_Products -->
+    <!-- http://websemantic.net/2013/FoodKB#Dairy_Products_Analogous -->
 
-    <Class rdf:about="&FoodKB;Dairy_Products">
+    <Class rdf:about="&FoodKB;Dairy_Products_Analogous">
+        <rdfs:label>Dairy_Products</rdfs:label>
         <rdfs:subClassOf rdf:resource="&FoodKB;Food_Items"/>
     </Class>
     
@@ -407,7 +392,10 @@
 
     <!-- http://websemantic.net/2013/FoodKB#Food_Items -->
 
-    <Class rdf:about="&FoodKB;Food_Items"/>
+    <Class rdf:about="&FoodKB;Food_Items">
+        <rdfs:label>Food
+</rdfs:label>
+    </Class>
     
 
 
@@ -467,6 +455,15 @@
     
 
 
+    <!-- http://websemantic.net/2013/FoodKB#Processed_Nuts -->
+
+    <Class rdf:about="&FoodKB;Processed_Nuts">
+        <rdfs:label>Cereal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&FoodKB;Food_Items"/>
+    </Class>
+    
+
+
     <!-- http://websemantic.net/2013/FoodKB#Proteins -->
 
     <Class rdf:about="&FoodKB;Proteins">
@@ -510,6 +507,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Fiber -->
 
     <Class rdf:about="&ont;Fiber">
+        <rdfs:label>Fiber</rdfs:label>
         <rdfs:subClassOf rdf:resource="&FoodKB;Macro_Nutritional_Elements"/>
     </Class>
     
@@ -565,12 +563,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfMeal -->
-
-    <Class rdf:about="&ont;StructureOfMeal"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -594,7 +586,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Almond -->
 
     <NamedIndividual rdf:about="&FoodKB;Almond">
-        <rdf:type rdf:resource="&FoodKB;Cereal"/>
+        <rdf:type rdf:resource="&FoodKB;Processed_Nuts"/>
         <rdfs:label xml:lang="tr">Badem</rdfs:label>
     </NamedIndividual>
     
@@ -612,7 +604,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Butter -->
 
     <NamedIndividual rdf:about="&FoodKB;Butter">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Süt Yağı</rdfs:label>
     </NamedIndividual>
     
@@ -621,7 +613,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Butter_Fat -->
 
     <NamedIndividual rdf:about="&FoodKB;Butter_Fat">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Katı Süt Yağı</rdfs:label>
     </NamedIndividual>
     
@@ -630,7 +622,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Butter_Milk -->
 
     <NamedIndividual rdf:about="&FoodKB;Butter_Milk">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Yayıkaltı Suyu</rdfs:label>
     </NamedIndividual>
     
@@ -658,7 +650,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Cheese_Powder -->
 
     <NamedIndividual rdf:about="&FoodKB;Cheese_Powder">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Peynir Tozu</rdfs:label>
     </NamedIndividual>
     
@@ -667,7 +659,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Coconut -->
 
     <NamedIndividual rdf:about="&FoodKB;Coconut">
-        <rdf:type rdf:resource="&FoodKB;Cereal"/>
+        <rdf:type rdf:resource="&FoodKB;Processed_Nuts"/>
         <rdfs:label xml:lang="tr">Hindistan Cevizi</rdfs:label>
     </NamedIndividual>
     
@@ -676,7 +668,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Cream -->
 
     <NamedIndividual rdf:about="&FoodKB;Cream">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Krema</rdfs:label>
     </NamedIndividual>
     
@@ -685,7 +677,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Cream_Powder -->
 
     <NamedIndividual rdf:about="&FoodKB;Cream_Powder">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Krema Tozu</rdfs:label>
     </NamedIndividual>
     
@@ -705,9 +697,6 @@
     <NamedIndividual rdf:about="&FoodKB;D_Vitamin">
         <rdf:type rdf:resource="&FoodKB;Vitamins"/>
         <rdfs:label xml:lang="tr">D Vitamini </rdfs:label>
-        <ont:Has_lack_of_sb_effect>Trẻ em sẽ bị còi xương, dễ bị kích thích, mệt mỏi, ra nhiều mồ hôi, rụng tóc sau gáy, dần dần rõ hơn là chậm mọc răng, thóp liền chậm, dễ bị co giật</ont:Has_lack_of_sb_effect>
-        <ont:Has_effect>có vai trò tham gia chuyển hóa và hấp thu calci dưới dạng phosphat tại ruột. Calci đọng ở xương răng làm cho răng, xương được cứng chắc.</ont:Has_effect>
-        <ont:Has_exceed_effect>kết hợp tăng calci máu gây nôn, chán ăn, tiêu chảy, đau các khớp, sốt cao, chảy máu võng mạc, rối loạn tâm thần, co giật dạng động kinh.</ont:Has_exceed_effect>
     </NamedIndividual>
     
 
@@ -760,7 +749,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Lactose -->
 
     <NamedIndividual rdf:about="&FoodKB;Lactose">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Laktoz</rdfs:label>
     </NamedIndividual>
     
@@ -769,7 +758,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Milk -->
 
     <NamedIndividual rdf:about="&FoodKB;Milk">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Süt</rdfs:label>
         <ont:has_calo rdf:datatype="&xsd;int">32</ont:has_calo>
     </NamedIndividual>
@@ -779,7 +768,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Milk_Fat -->
 
     <NamedIndividual rdf:about="&FoodKB;Milk_Fat">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Süt Yağı</rdfs:label>
     </NamedIndividual>
     
@@ -788,7 +777,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Nut -->
 
     <NamedIndividual rdf:about="&FoodKB;Nut">
-        <rdf:type rdf:resource="&FoodKB;Cereal"/>
+        <rdf:type rdf:resource="&FoodKB;Processed_Nuts"/>
         <rdfs:label xml:lang="tr">Fındık</rdfs:label>
     </NamedIndividual>
     
@@ -797,7 +786,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Peanut -->
 
     <NamedIndividual rdf:about="&FoodKB;Peanut">
-        <rdf:type rdf:resource="&FoodKB;Cereal"/>
+        <rdf:type rdf:resource="&FoodKB;Processed_Nuts"/>
         <rdfs:label xml:lang="tr">Yer Fıstığı</rdfs:label>
     </NamedIndividual>
     
@@ -815,7 +804,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Walnut -->
 
     <NamedIndividual rdf:about="&FoodKB;Walnut">
-        <rdf:type rdf:resource="&FoodKB;Cereal"/>
+        <rdf:type rdf:resource="&FoodKB;Processed_Nuts"/>
         <rdfs:label xml:lang="tr">Ceviz</rdfs:label>
     </NamedIndividual>
     
@@ -824,7 +813,7 @@
     <!-- http://websemantic.net/2013/FoodKB#Whey -->
 
     <NamedIndividual rdf:about="&FoodKB;Whey">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products_Analogous"/>
         <rdfs:label xml:lang="tr">Peynir Altı Suyu</rdfs:label>
     </NamedIndividual>
     
@@ -1582,31 +1571,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfBreakfast -->
-
-    <NamedIndividual rdf:about="&ont;StructureOfBreakfast">
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Bơ},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfDinner -->
-
-    <NamedIndividual rdf:about="&ont;StructureOfDinner">
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Bơ},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#StructureOfLunch -->
-
-    <NamedIndividual rdf:about="&ont;StructureOfLunch">
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Bơ},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Fruits{Táo},1];[0.3,Egg_Products,1];[0.3,Fruit,1]</ont:Has_structure>
-    </NamedIndividual>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#Sò -->
 
     <NamedIndividual rdf:about="&ont;Sò">
@@ -1924,7 +1888,10 @@
 
     <!-- http://www.co-ode.org/ontologies/ont.owl#Xà_lách -->
 
-    <NamedIndividual rdf:about="&ont;Xà_lách"/>
+    <NamedIndividual rdf:about="&ont;Xà_lách">
+        <rdf:type rdf:resource="&FoodKB;Vegetables"/>
+        <ont:has_calo rdf:datatype="&xsd;int">41</ont:has_calo>
+    </NamedIndividual>
     
 
 
