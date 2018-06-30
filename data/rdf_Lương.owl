@@ -582,20 +582,10 @@
     
 
 
-    <!-- http://websemantic.net/2013/FoodKB#Albumen -->
-
-    <NamedIndividual rdf:about="&FoodKB;Albumen">
-        <rdf:type rdf:resource="&FoodKB;Egg_Products"/>
-        <rdfs:label xml:lang="tr">Yumurta Akı</rdfs:label>
-    </NamedIndividual>
-    
-
-
     <!-- http://websemantic.net/2013/FoodKB#Almond -->
 
     <NamedIndividual rdf:about="&FoodKB;Almond">
         <rdf:type rdf:resource="&FoodKB;Cereal"/>
-        <rdfs:label xml:lang="tr">Badem</rdfs:label>
     </NamedIndividual>
     
 
@@ -604,7 +594,6 @@
 
     <NamedIndividual rdf:about="&FoodKB;Aqua">
         <rdf:type rdf:resource="&FoodKB;Water"/>
-        <rdfs:label xml:lang="tr">Su</rdfs:label>
     </NamedIndividual>
     
 
@@ -955,6 +944,9 @@
 
     <NamedIndividual rdf:about="&ont;A_Vitamin">
         <rdf:type rdf:resource="&FoodKB;Vitamins"/>
+        <ont:Has_exceed_effect rdf:datatype="&xsd;string">Buồn nôn, vàng da, gây hại cho thai nhi</ont:Has_exceed_effect>
+        <ont:Has_lack_of_sb_effect rdf:datatype="&xsd;string">Triệu chứng quáng gà, khô mắt, đục thủy tinh thể, có thể gây mù mắt do bệnh khô mắt, răng yếu mau hỏng, da khô có vẩy, tóc khô giòn, cơ thể dễ bị nhiễm khuẩn, xương chậm phát triển.</ont:Has_lack_of_sb_effect>
+        <ont:Has_effect rdf:datatype="&xsd;string">Tăng sức đề kháng, bảo vệ mắt, chống ung thư, da trẻ</ont:Has_effect>
     </NamedIndividual>
     
 
@@ -964,6 +956,8 @@
     <NamedIndividual rdf:about="&ont;Atiso">
         <rdf:type rdf:resource="&FoodKB;Vegetables"/>
         <ont:has_calo rdf:datatype="&xsd;int">47</ont:has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nấu canh,pha trà</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng,trưa,tối</ont:Has_suitable_time>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
     </NamedIndividual>
     
