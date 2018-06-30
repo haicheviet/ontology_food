@@ -171,6 +171,7 @@ def condtion_for_rule_meal(food_default, list_only_food):
 def destructure_rule_meal(content, list_only_food):
     result = {}
     food_list = re.findall(r'\[(.*?)\]', content)
+    print(food_list)
     for food_attrb in food_list:
         food = food_attrb.split(",")
         if "{" in food[1]:
@@ -204,10 +205,10 @@ def list_structure_lunch(list_food):
     list_rule = []
     for content in search:
         if content["label"] == 'StructureOfLunch' and content["p"] == "Has_structure":
+            print(content['o'])
             list_rule.append(destructure_rule_meal(content["o"], list_food))
     return list_rule
 
 
 if __name__ == "__main__":
-    # print(list_structure_breakfast()) 
-    print("done")
+    print(list_structure_lunch(None)) 

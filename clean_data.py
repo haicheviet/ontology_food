@@ -4,9 +4,6 @@ import sys
 import os
 import json
 
-import owlready2
-
-owlready2.JAVA_EXE = "C:\\Program Files\\Java\\jdk1.8.0_151\\bin\\java.exe" 
 
 class SparqlQueries:
     def __init__(self, data_dir_path):
@@ -58,7 +55,7 @@ if __name__ == "__main__":
     current_dir = os.path.dirname("__file__")
     current_dir = current_dir if current_dir is not '' else '.'
     # directory to scan for any txt files
-    data_dir_path = current_dir + '/data/rdf_lương.owl'
+    data_dir_path = current_dir + '/data/rdf_luong.owl'
 
     query = SparqlQueries(data_dir_path)
     clean_data = query.search()

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1530354598575" name="duplicate:http://www.w3.org/2002/07/owl" uri="123.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1530354598575" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1530354598575" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf_Luong.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1530354598575" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf_lộc.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1530354598575" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf_testing.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1530368787174" name="duplicate:http://www.w3.org/2002/07/owl" uri="123.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1530368787174" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1530368787174" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf_luong.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1530368787174" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf_lộc.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1530368787174" name="duplicate:http://www.w3.org/2002/07/owl" uri="rdf_testing.owl"/>
     </group>
 </catalog>
