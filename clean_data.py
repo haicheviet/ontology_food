@@ -54,10 +54,10 @@ if __name__ == "__main__":
     sys.path.append(os.path.join(os.path.dirname("__file__"), '..'))
     current_dir = os.path.dirname("__file__")
     current_dir = current_dir if current_dir is not '' else '.'
-    # directory to scan for any txt files
-    data_dir_path = current_dir + '/data/123.owl'
+    # directory to scan for any owl files
+    data_dir_path = current_dir + '/data/rdf.owl'
 
     query = SparqlQueries(data_dir_path)
     clean_data = query.search()
-    with open(current_dir + "/result_after_clean.json", 'w')as f:
+    with open(current_dir + "/data_after_clean/result_after_clean.json", 'w')as f:
         f.write(json.dumps(clean_data))

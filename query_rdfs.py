@@ -5,7 +5,14 @@ import json
 import re
 
 
-with open("result_after_clean.json", 'r')as f:
+sys.path.append(os.path.join(os.path.dirname("__file__"), '..'))
+current_dir = os.path.dirname("__file__")
+current_dir = current_dir if current_dir is not '' else '.'
+# directory to scan for any owl files
+data_dir_path = current_dir + '/data_after_clean'
+
+
+with open(data_dir_path + "/result_after_clean.json", 'r')as f:
     search = json.load(f)
 
 #
@@ -208,4 +215,4 @@ def list_structure_lunch(list_food):
 
 
 if __name__ == "__main__":
-    print(avoided_group_food("Bệnh_béo_phì")) 
+    print(all_food()) 
