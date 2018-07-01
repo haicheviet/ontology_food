@@ -101,7 +101,6 @@ def check_individual_exist(name):
 
 
 def avoided_group_food(illness):
-    illness = illness.replace(" ", "_")
     group_food = []
     result = []
     for content in search:
@@ -115,7 +114,6 @@ def avoided_group_food(illness):
 
 
 def needed_group_food(illness):
-    illness = illness.replace(" ", "_")
     group_food = []
     result = []
     for content in search:
@@ -131,7 +129,6 @@ def needed_group_food(illness):
 
 
 def limit_food(illness):
-    illness = illness.replace(" ", "_")
     result = []
     for content in search:
         if content["label"] == illness and content["p"] == "Limit_Food":
@@ -211,4 +208,4 @@ def list_structure_lunch(list_food):
 
 
 if __name__ == "__main__":
-    print(list_structure_lunch(None)) 
+    print(avoided_group_food("Bệnh_béo_phì")) 
