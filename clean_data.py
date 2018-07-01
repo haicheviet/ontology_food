@@ -55,7 +55,7 @@ if __name__ == "__main__":
     current_dir = os.path.dirname("__file__")
     current_dir = current_dir if current_dir is not '' else '.'
     # directory to scan for any owl files
-    data_dir_path = current_dir + '/data/rdf.owl'
+    data_dir_path = current_dir + '/data_raw/rdf.owl'
 
     query = SparqlQueries(data_dir_path)
     clean_data = query.search()

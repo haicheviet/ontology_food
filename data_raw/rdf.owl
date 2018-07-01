@@ -561,9 +561,9 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Seafood -->
+    <!-- http://www.co-ode.org/ontologies/ont.owl#SeaFood -->
 
-    <Class rdf:about="&ont;Seafood">
+    <Class rdf:about="&ont;SeaFood">
         <rdfs:subClassOf rdf:resource="&FoodKB;Food_Items"/>
     </Class>
     
@@ -598,7 +598,7 @@
 
     <NamedIndividual rdf:about="&FoodKB;Almond">
         <rdf:type rdf:resource="&FoodKB;Cereal"/>
-        <rdfs:label xml:lang="tr">Badem</rdfs:label>
+        <ont:Has_calo rdf:datatype="&xsd;int">130</ont:Has_calo>
     </NamedIndividual>
     
 
@@ -651,7 +651,6 @@
 
     <NamedIndividual rdf:about="&FoodKB;Coconut">
         <rdf:type rdf:resource="&FoodKB;Cereal"/>
-        <rdfs:label xml:lang="tr">Hindistan Cevizi</rdfs:label>
     </NamedIndividual>
     
 
@@ -699,21 +698,11 @@
     
 
 
-    <!-- http://websemantic.net/2013/FoodKB#Milk -->
-
-    <NamedIndividual rdf:about="&FoodKB;Milk">
-        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
-        <rdfs:label>Sữa</rdfs:label>
-        <ont:Has_calo rdf:datatype="&xsd;int">32</ont:Has_calo>
-    </NamedIndividual>
-    
-
-
     <!-- http://websemantic.net/2013/FoodKB#Nut -->
 
     <NamedIndividual rdf:about="&FoodKB;Nut">
         <rdf:type rdf:resource="&FoodKB;Cereal"/>
-        <rdfs:label xml:lang="tr">Fındık</rdfs:label>
+        <ont:Has_calo rdf:datatype="&xsd;int">134</ont:Has_calo>
     </NamedIndividual>
     
 
@@ -722,7 +711,7 @@
 
     <NamedIndividual rdf:about="&FoodKB;Peanut">
         <rdf:type rdf:resource="&FoodKB;Cereal"/>
-        <rdfs:label xml:lang="tr">Yer Fıstığı</rdfs:label>
+        <ont:Has_calo rdf:datatype="&xsd;int">140</ont:Has_calo>
     </NamedIndividual>
     
 
@@ -738,11 +727,29 @@
     
 
 
+    <!-- http://websemantic.net/2013/FoodKB#Sữa_bò -->
+
+    <NamedIndividual rdf:about="&FoodKB;Sữa_bò">
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">70</ont:Has_calo>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
+        <ont:Has_processing rdf:datatype="&xsd;string">Uống chín...</ont:Has_processing>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cam"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_gà"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_ngỗng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_vịt"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://websemantic.net/2013/FoodKB#Sữa_đặc -->
 
     <NamedIndividual rdf:about="&FoodKB;Sữa_đặc">
         <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
         <ont:Has_calo rdf:datatype="&xsd;int">320</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Uống chín, ăn chung với bánh mì....</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">sáng,trưa,tối</ont:Has_suitable_time>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
@@ -756,7 +763,7 @@
 
     <NamedIndividual rdf:about="&FoodKB;Walnut">
         <rdf:type rdf:resource="&FoodKB;Cereal"/>
-        <rdfs:label xml:lang="tr">Ceviz</rdfs:label>
+        <ont:Has_calo rdf:datatype="&xsd;int">137</ont:Has_calo>
     </NamedIndividual>
     
 
@@ -1042,9 +1049,9 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
         <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pyridoxine_B6"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
     </NamedIndividual>
     
 
@@ -1085,7 +1092,6 @@
 
     <NamedIndividual rdf:about="&ont;Bệnh_béo_phì">
         <rdf:type rdf:resource="&ont;Illness"/>
-        <ont:Limit_Food rdf:resource="&FoodKB;Butter"/>
         <ont:Need_Food rdf:resource="&ont;Bắp"/>
         <ont:Need_Food rdf:resource="&ont;Cà_rốt"/>
         <ont:Need_Food rdf:resource="&ont;Mực"/>
@@ -1142,7 +1148,7 @@
 
     <NamedIndividual rdf:about="&ont;Bệnh_tiểu_đường">
         <rdf:type rdf:resource="&ont;Illness"/>
-        <ont:Need_Food rdf:resource="&FoodKB;Milk"/>
+        <ont:Need_Food rdf:resource="&FoodKB;Sữa_bò"/>
         <ont:Need_Food rdf:resource="&ont;Thịt_bò"/>
         <ont:Need_Group_Food rdf:resource="&ont;Thủy_hải_sản"/>
         <ont:Avoid_Group_Food rdf:resource="&ont;Trái_cây_ngọt"/>
@@ -1178,7 +1184,7 @@
         <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
         <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
-        <ont:Not_Use_Together rdf:resource="&FoodKB;Milk"/>
+        <ont:Not_Use_Together rdf:resource="&FoodKB;Sữa_bò"/>
         <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
         <ont:Not_Use_Together rdf:resource="&ont;Cà_rốt"/>
         <ont:Not_Use_Together rdf:resource="&ont;Dưa_leo"/>
@@ -1261,6 +1267,27 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Cua -->
+
+    <NamedIndividual rdf:about="&ont;Cua">
+        <rdf:type rdf:resource="&ont;SeaFood"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">85</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, hấp, rang</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Bạc_hà"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Calcium_Canxi"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cà_tím"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Quýt"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Sodium"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Thịt_gà"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Thịt_gà_tây"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Cà_chua -->
 
     <NamedIndividual rdf:about="&ont;Cà_chua">
@@ -1304,7 +1331,7 @@
         <ont:Has_suitable_time rdf:datatype="&xsd;string">trưa,tối</ont:Has_suitable_time>
         <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
     </NamedIndividual>
     
 
@@ -1312,7 +1339,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Cá_chép -->
 
     <NamedIndividual rdf:about="&ont;Cá_chép">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
         <ont:Has_calo rdf:datatype="&xsd;int">127</ont:Has_calo>
         <ont:Has_processing rdf:datatype="&xsd;string">Nướng, hầm, chiên, luộc</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
@@ -1329,6 +1356,10 @@
 
     <NamedIndividual rdf:about="&ont;Cá_chứa_nhiều_thủy_ngân">
         <rdf:type rdf:resource="&ont;Group_Food"/>
+        <ont:Has_Food rdf:resource="&ont;Cua"/>
+        <ont:Has_Food rdf:resource="&ont;Cá_ngừ"/>
+        <ont:Has_Food rdf:resource="&ont;Cá_đuối"/>
+        <ont:Has_Food rdf:resource="&ont;Tôm"/>
     </NamedIndividual>
     
 
@@ -1336,7 +1367,15 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Cá_hồi -->
 
     <NamedIndividual rdf:about="&ont;Cá_hồi">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">208</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, chiên, hầm, hấp</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cần_tây"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Pyridoxine_B6"/>
     </NamedIndividual>
     
 
@@ -1344,7 +1383,15 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Cá_ngừ -->
 
     <NamedIndividual rdf:about="&ont;Cá_ngừ">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">184</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, chiên, hầm, hấp</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cần_tây"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
     </NamedIndividual>
     
 
@@ -1352,7 +1399,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Cá_đuối -->
 
     <NamedIndividual rdf:about="&ont;Cá_đuối">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
     </NamedIndividual>
     
 
@@ -1361,6 +1408,7 @@
 
     <NamedIndividual rdf:about="&ont;Cơm">
         <rdf:type rdf:resource="&ont;Starch"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">204</ont:Has_calo>
     </NamedIndividual>
     
 
@@ -1375,11 +1423,28 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;K_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
         <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Not_Use_Together rdf:resource="&ont;Cá_ngừ"/>
         <ont:Not_Use_Together rdf:resource="&ont;Dưa_leo"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
         <ont:Not_Use_Together rdf:resource="&ont;Thịt_rùa"/>
         <ont:Not_Use_Together rdf:resource="&ont;Tôm"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Củ_cải_trắng -->
+
+    <NamedIndividual rdf:about="&ont;Củ_cải_trắng">
+        <rdf:type rdf:resource="&FoodKB;Vegetables"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">16</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Hấp, nấu canh...</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;E_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Folates_B9"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Nho"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Nấm"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Táo"/>
     </NamedIndividual>
     
 
@@ -1527,8 +1592,15 @@
 
     <NamedIndividual rdf:about="&ont;Giàu_chất_xơ">
         <rdf:type rdf:resource="&ont;Group_Food"/>
+        <ont:Has_Food rdf:resource="&FoodKB;Peanut"/>
+        <ont:Has_Food rdf:resource="&ont;Atiso"/>
+        <ont:Has_Food rdf:resource="&ont;Bánh_mì"/>
+        <ont:Has_Food rdf:resource="&ont;Bơ"/>
+        <ont:Has_Food rdf:resource="&ont;Bắp"/>
+        <ont:Has_Food rdf:resource="&ont;Bắp_cải"/>
         <ont:Has_Food rdf:resource="&ont;Cà_chua"/>
         <ont:Has_Food rdf:resource="&ont;Dưa_leo"/>
+        <ont:Has_Food rdf:resource="&ont;Táo"/>
     </NamedIndividual>
     
 
@@ -1619,6 +1691,21 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Khoai_mì -->
+
+    <NamedIndividual rdf:about="&ont;Khoai_mì">
+        <rdf:type rdf:resource="&ont;Starch"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">159</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Hấp, nướng</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Xoài"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Ổi"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Khoai_tây -->
 
     <NamedIndividual rdf:about="&ont;Khoai_tây">
@@ -1655,10 +1742,26 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Khổ_qua -->
+
+    <NamedIndividual rdf:about="&ont;Khổ_qua">
+        <rdf:type rdf:resource="&FoodKB;Vegetables"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">17</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Hấp, nấu canh...</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Fiber"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Folates_B9"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Tôm"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Lươn -->
 
     <NamedIndividual rdf:about="&ont;Lươn">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
         <ont:Has_calo rdf:datatype="&xsd;int">184</ont:Has_calo>
         <ont:Has_processing rdf:datatype="&xsd;string">Nướng, hầm</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
@@ -1715,10 +1818,32 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Mướp -->
+
+    <NamedIndividual rdf:about="&ont;Mướp">
+        <rdf:type rdf:resource="&FoodKB;Vegetables"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">14</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Hấp, nấu canh...</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Zinc_Kẽm"/>
+        <ont:Need_Group_Food rdf:resource="&ont;Tôm"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Mực -->
 
     <NamedIndividual rdf:about="&ont;Mực">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">79</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, hấp, xào, chiên</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Selenium"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Sodium"/>
     </NamedIndividual>
     
 
@@ -1732,14 +1857,15 @@
         <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
         <ont:Has_Nutrient rdf:resource="&ont;Copper_Đồng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Not_Use_Together rdf:resource="&ont;Cá_chép"/>
         <ont:Not_Use_Together rdf:resource="&ont;Cá_hồi"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Củ_cải_trắng"/>
         <ont:Has_Nutrient rdf:resource="&ont;Fiber"/>
         <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
         <ont:Has_Nutrient rdf:resource="&ont;Manganese_Mangan"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pyridoxine_B6"/>
         <ont:Has_Nutrient rdf:resource="&ont;Riboflavin_B2"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
     </NamedIndividual>
     
 
@@ -1772,6 +1898,23 @@
 
     <NamedIndividual rdf:about="&ont;Nước_uống_có_gas">
         <rdf:type rdf:resource="&ont;Group_Food"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nấm -->
+
+    <NamedIndividual rdf:about="&ont;Nấm">
+        <rdf:type rdf:resource="&FoodKB;Vegetables"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">22</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nấu, canh, xào, kho</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&ont;Copper_Đồng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Củ_cải_trắng"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Niacin_B3"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Pantothenic_acid_B5"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Riboflavin_B2"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Selenium"/>
     </NamedIndividual>
     
 
@@ -1839,8 +1982,8 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
         <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Not_Use_Together rdf:resource="&ont;Dưa_leo"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
     </NamedIndividual>
     
 
@@ -1886,7 +2029,7 @@
         <ont:Has_processing rdf:datatype="&xsd;string">Luộc, xào</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">sáng,trưa,tối</ont:Has_suitable_time>
         <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
-        <ont:Not_Use_Together rdf:resource="&FoodKB;Milk"/>
+        <ont:Not_Use_Together rdf:resource="&FoodKB;Sữa_bò"/>
         <ont:Has_Nutrient rdf:resource="&ont;A_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&ont;Folates_B9"/>
     </NamedIndividual>
@@ -1944,8 +2087,8 @@
 
     <NamedIndividual rdf:about="&ont;StructureOfBreakFast">
         <rdf:type rdf:resource="&ont;StructureOfMeal"/>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Cereal,1];[Dairy_Products,1];[Fruit,1]</ont:Has_structure>
-        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch,1];[Egg_Products,1];[Fruit,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.2,Cereal,2];[0.35,Dairy_Products,1];[0.25,Fruits,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.4,Starch,1];[0.15,Egg_Products,1];[0.15,Fruits,1];[0.3,Dairy_Products,1]</ont:Has_structure>
     </NamedIndividual>
     
 
@@ -1954,6 +2097,14 @@
 
     <NamedIndividual rdf:about="&ont;StructureOfDinner">
         <rdf:type rdf:resource="&ont;StructureOfMeal"/>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetables,1];[0.15,Egg_Products,1];[0.1,Fruits,1]
+</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetables,2];[0.15,Egg_Products,1]
+</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.1,Vegetables,1];[0.25,Fruits,1]
+</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.25,Dairy_Products,1];[0.1,Fruits,1]
+</ont:Has_structure>
     </NamedIndividual>
     
 
@@ -1962,6 +2113,12 @@
 
     <NamedIndividual rdf:about="&ont;StructureOfLunch">
         <rdf:type rdf:resource="&ont;StructureOfMeal"/>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.1,Meat,1];[0.1,SeaFood,1];[0.1,Vegetables,1];[0.2,Fruits,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetables,1][0.15,Dairy_Products,1];[0.1,Fruits,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,Poultry,1];[0.1,Vegetables,2];[0.15,Egg_Products,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.1,Egg_Products,1];[0.1,Vegetables,1];[0.15,Fruits,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.15,SeaFood,1];[0.1,Vegetables,1];[0.25,Dairy_Products,1]</ont:Has_structure>
+        <ont:Has_structure rdf:datatype="&xsd;string">[0.5,Starch{Cơm},1];[0.2,Meat,1];[0.1,Vegetables,1];[0.2,Fruits,1]</ont:Has_structure>
     </NamedIndividual>
     
 
@@ -1980,7 +2137,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Sò -->
 
     <NamedIndividual rdf:about="&ont;Sò">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
         <ont:Has_calo rdf:datatype="&xsd;int">79</ont:Has_calo>
         <ont:Has_processing rdf:datatype="&xsd;string">Nướng,hấp</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">trưa,tối</ont:Has_suitable_time>
@@ -2000,6 +2157,7 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Carbohydrate"/>
         <ont:Has_Nutrient rdf:resource="&ont;Copper_Đồng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Has_Nutrient rdf:resource="&ont;Folates_B9"/>
         <ont:Has_Nutrient rdf:resource="&ont;Manganese_Mangan"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pyridoxine_B6"/>
@@ -2007,7 +2165,6 @@
         <ont:Has_Nutrient rdf:resource="&ont;Thiamin_B1"/>
         <ont:Not_Use_Together rdf:resource="&ont;Thịt_bò"/>
         <ont:Not_Use_Together rdf:resource="&ont;Thịt_chó"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
         <ont:Not_Use_Together rdf:resource="&ont;Thịt_cừu"/>
     </NamedIndividual>
     
@@ -2017,6 +2174,36 @@
 
     <NamedIndividual rdf:about="&ont;Sữa_chua">
         <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Sữa_cừu -->
+
+    <NamedIndividual rdf:about="&ont;Sữa_cừu">
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">120</ont:Has_calo>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
+        <ont:Has_processing rdf:datatype="&xsd;string">Uống chín....</ont:Has_processing>
+        <ont:Not_Use_Together rdf:resource="&ont;Cam"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_gà"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_ngỗng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_vịt"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Sữa_dê -->
+
+    <NamedIndividual rdf:about="&ont;Sữa_dê">
+        <rdf:type rdf:resource="&FoodKB;Dairy_Products"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">76</ont:Has_calo>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
+        <ont:Has_processing rdf:datatype="&xsd;string">Uống chín...</ont:Has_processing>
+        <ont:Not_Use_Together rdf:resource="&ont;Cam"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_gà"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_ngỗng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Trứng_vịt"/>
     </NamedIndividual>
     
 
@@ -2086,27 +2273,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Thịt_cua -->
-
-    <NamedIndividual rdf:about="&ont;Thịt_cua">
-        <rdf:type rdf:resource="&ont;Seafood"/>
-        <ont:Has_calo rdf:datatype="&xsd;int">85</ont:Has_calo>
-        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, hấp, rang</ont:Has_processing>
-        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
-        <ont:Has_Nutrient rdf:resource="&FoodKB;C_Vitamin"/>
-        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Bạc_hà"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Calcium_Canxi"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Cà_tím"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Quýt"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Sodium"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_gà"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_gà_tây"/>
-    </NamedIndividual>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#Thịt_cừu -->
 
     <NamedIndividual rdf:about="&ont;Thịt_cừu">
@@ -2155,6 +2321,7 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Zinc_Kẽm"/>
         <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
         <ont:Has_Nutrient rdf:resource="&ont;Niacin_B3"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pantothenic_acid_B5"/>
@@ -2163,7 +2330,6 @@
         <ont:Has_Nutrient rdf:resource="&ont;Riboflavin_B2"/>
         <ont:Has_Nutrient rdf:resource="&ont;Selenium"/>
         <ont:Not_Use_Together rdf:resource="&ont;Thịt_chó"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
     </NamedIndividual>
     
 
@@ -2180,13 +2346,13 @@
         <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
         <ont:Has_Nutrient rdf:resource="&FoodKB;Zinc_Kẽm"/>
         <ont:Has_Nutrient rdf:resource="&ont;Copper_Đồng"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cua"/>
         <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
         <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pantothenic_acid_B5"/>
         <ont:Has_Nutrient rdf:resource="&ont;Phosphorus"/>
         <ont:Has_Nutrient rdf:resource="&ont;Selenium"/>
         <ont:Not_Use_Together rdf:resource="&ont;Thịt_chó"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Thịt_cua"/>
     </NamedIndividual>
     
 
@@ -2260,7 +2426,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Thịt_rùa -->
 
     <NamedIndividual rdf:about="&ont;Thịt_rùa">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
         <ont:Has_calo rdf:datatype="&xsd;int">89</ont:Has_calo>
         <ont:Has_processing rdf:datatype="&xsd;string">Nướng, nấu</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">sáng,trưa,tối</ont:Has_suitable_time>
@@ -2316,13 +2482,37 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Thịt_ếch -->
+
+    <NamedIndividual rdf:about="&ont;Thịt_ếch">
+        <rdf:type rdf:resource="&FoodKB;Meat"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">73</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, luộc</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Phosphorus"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Riboflavin_B2"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Selenium"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Thủy_hải_sản -->
 
     <NamedIndividual rdf:about="&ont;Thủy_hải_sản">
         <rdf:type rdf:resource="&ont;Group_Food"/>
+        <ont:Has_Food rdf:resource="&ont;Cua"/>
+        <ont:Has_Food rdf:resource="&ont;Cá_chép"/>
+        <ont:Has_Food rdf:resource="&ont;Cá_hồi"/>
+        <ont:Has_Food rdf:resource="&ont;Cá_ngừ"/>
+        <ont:Has_Food rdf:resource="&ont;Cá_đuối"/>
+        <ont:Has_Food rdf:resource="&ont;Lươn"/>
         <ont:Has_Food rdf:resource="&ont;Mực"/>
-        <ont:Has_Food rdf:resource="&ont;Thịt_cua"/>
+        <ont:Has_Food rdf:resource="&ont;Sò"/>
+        <ont:Has_Food rdf:resource="&ont;Thịt_rùa"/>
         <ont:Has_Food rdf:resource="&ont;Tôm"/>
+        <ont:Has_Food rdf:resource="&ont;Ốc"/>
     </NamedIndividual>
     
 
@@ -2347,8 +2537,9 @@
 
     <NamedIndividual rdf:about="&ont;Thực_phẩm_nhiều_tinh_bột">
         <rdf:type rdf:resource="&ont;Group_Food"/>
-        <ont:Has_Food rdf:resource="&FoodKB;Butter"/>
         <ont:Has_Food rdf:resource="&FoodKB;Peanut"/>
+        <ont:Has_Food rdf:resource="&ont;Bánh_mì"/>
+        <ont:Has_Food rdf:resource="&ont;Khoai_mì"/>
         <ont:Has_Food rdf:resource="&ont;Khoai_tây"/>
     </NamedIndividual>
     
@@ -2360,6 +2551,7 @@
         <rdf:type rdf:resource="&ont;Group_Food"/>
         <ont:Has_Food rdf:resource="&ont;Thịt_bò"/>
         <ont:Has_Food rdf:resource="&ont;Thịt_gà"/>
+        <ont:Has_Food rdf:resource="&ont;Tôm"/>
     </NamedIndividual>
     
 
@@ -2472,7 +2664,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Tôm -->
 
     <NamedIndividual rdf:about="&ont;Tôm">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
         <ont:Has_calo rdf:datatype="&xsd;int">76</ont:Has_calo>
         <ont:Has_processing rdf:datatype="&xsd;string">Chiên, nướng, hầm, hấp</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
@@ -2562,26 +2754,19 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Ếch -->
-
-    <NamedIndividual rdf:about="&ont;Ếch">
-        <rdf:type rdf:resource="&FoodKB;Meat"/>
-        <ont:Has_calo rdf:datatype="&xsd;int">73</ont:Has_calo>
-        <ont:Has_processing rdf:datatype="&xsd;string">Nướng, luộc</ont:Has_processing>
-        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
-        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Phosphorus"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Riboflavin_B2"/>
-        <ont:Has_Nutrient rdf:resource="&ont;Selenium"/>
-    </NamedIndividual>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#Ốc -->
 
     <NamedIndividual rdf:about="&ont;Ốc">
-        <rdf:type rdf:resource="&ont;Seafood"/>
+        <rdf:type rdf:resource="&ont;SeaFood"/>
+        <ont:Has_calo rdf:datatype="&xsd;int">90</ont:Has_calo>
+        <ont:Has_processing rdf:datatype="&xsd;string">Nướng luộc, xào...</ont:Has_processing>
+        <ont:Has_suitable_time rdf:datatype="&xsd;string">Trưa, tối</ont:Has_suitable_time>
+        <ont:Has_Nutrient rdf:resource="&FoodKB;Protein"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Bắp"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
+        <ont:Not_Use_Together rdf:resource="&ont;Cần_tây"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Iron"/>
+        <ont:Has_Nutrient rdf:resource="&ont;Manganese_Mangan"/>
     </NamedIndividual>
     
 
