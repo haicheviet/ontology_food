@@ -1059,7 +1059,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#Bắp -->
 
     <NamedIndividual rdf:about="&ont;Bắp">
-        <rdf:type rdf:resource="&ont;Fruits"/>
+        <rdf:type rdf:resource="&FoodKB;Cereal"/>
         <ont:Has_calo rdf:datatype="&xsd;string">86</ont:Has_calo>
         <ont:Has_processing rdf:datatype="&xsd;string">Luộc, xào</ont:Has_processing>
         <ont:Has_suitable_time rdf:datatype="&xsd;string">sáng,trưa,tối</ont:Has_suitable_time>

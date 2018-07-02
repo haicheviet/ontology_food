@@ -118,13 +118,13 @@ def FilterFood(list_avoid_food, list_need_food,
             list_all_food.append(food)
     for food_1 in list_all_food:
         if food_1[0] in list_need_food:
-            food_1.append(1)
+            food_1.append(2)
             result[food_1[0]] = food_1[1:]
         elif food_1[0] in list_limit_food:
-            food_1.append(-1)
+            food_1.append(0)
             result[food_1[0]] = food_1[1:]
         else:
-            food_1.append(0)
+            food_1.append(1)
             result[food_1[0]] = food_1[1:]
     return result
 
@@ -236,6 +236,20 @@ def nCi(n_array, number):
     result = list(itertools.combinations(n_array, number))
     return result
 
+def caculate_menu_score(menu, list_food):
+    score_real = 0
+    score_abstract = 0
+    confident = None
+    ideal_score = 2
+    for meal in menu:
+        for item in meal:
+            for food in item:
+                score_real += list_food[food][3] # food_score
+                score_abstract += ideal_score
+     
+    confident = round(score_real / score_abstract * 100, 2)
+    menu = (menu, confident)
+    return menu
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
@@ -407,12 +421,18 @@ def FindListLunch(data):
             result.append(item)
     return result
 
-def JoinMeal(breakfast_list, lunch_list, dinner_list):
+def JoinMeal(breakfast_list, lunch_list, dinner_list, list_food):
     result = None
     food = [breakfast_list, lunch_list, dinner_list]
     result = list(itertools.product(*food))
 
+    for count, menu in enumerate(result):
+        menu = caculate_menu_score(menu, list_food)
+        result[count] = menu
+
+    menu = sorted(menu, key = lambda kv: kv[1], reverse=True)
     print(len(result))
+
     return result
 
 if __name__ == "__main__":
@@ -430,7 +450,7 @@ if __name__ == "__main__":
     breakfast_list = FindListBreakFast(known)
     lunch_list = FindListLunch(known)
     dinner_list = FindListDinner(known)
-    menu = JoinMeal(breakfast_list, lunch_list, dinner_list)
+    menu = JoinMeal(breakfast_list, lunch_list, dinner_list, known["ListFood"])
     print(menu[0])
     for i in menu[0]:
         print('i', i)
