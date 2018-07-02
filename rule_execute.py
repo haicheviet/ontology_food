@@ -1,9 +1,11 @@
 import sys
 import os
 import re
+from operator import itemgetter
 from query_rdfs import *
 import itertools
 import random
+from function_file import *
 
 sys.path.append(os.path.join(os.path.dirname("__file__"), '..'))
 current_dir = os.path.dirname("__file__")
@@ -11,9 +13,10 @@ current_dir = current_dir if current_dir is not '' else '.'
 # directory to scan for any txt files
 data_dir_path = current_dir + '/rule'
 
-known = {"name": "Che Viet Hai", "height": 170, "weight": 55, "gender": "nam",
-         "age": 17, "PhysicalActiveLevel": "Hoạt động vừa", "target": "giữ cân",
-         "ListIllness": "Bệnh_béo_phì"}
+with open(current_dir + "/Information_user/known.json",'r', encoding = 'utf8') as lst:
+    known = json.load(lst)
+
+known_tamp = known
 data_rule = []
 function = []
 with open(data_dir_path + "/rule.txt", "r", encoding="utf8") as f:
@@ -46,13 +49,13 @@ def BMIlevelCalc(bmi_range):
 
 
 def BMRvalueOfMaleCalc(height, weight, age):
-    function[1] = function[1].split("=")[1]
-    return round(eval(function[1]), 2)
+    result = function[1].split("=")[1]
+    return round(eval(result), 2)
 
 
 def BMRvalueOfFemaleCalc(height, weight, age):
-    function[1] = function[1].split("=")[1]
-    return round(eval(function[1]), 2)
+    result = function[1].split("=")[1]
+    return round(eval(result), 2)
 
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
@@ -74,6 +77,7 @@ def PAvalueCalc(PhysicalActiveLevel):
 
 def CaloCalc(BMRvalue, PhysicalActiveValue, target):
     result = round(eval(function[3].split("=")[1]), 2)
+
     if target == "tăng cân":
         result += 500
     elif target == "giảm cân":
@@ -86,6 +90,16 @@ def CaloCalc(BMRvalue, PhysicalActiveValue, target):
 
 
 def CaloToKeepWeightCalc(calo_per_day):
+    # breakfast: 26%, #Lunch: 40%, # Dinner: 34%
+    return [round(calo_per_day*26/100, 2),
+            round(calo_per_day*40/100, 2), round(calo_per_day*34/100, 2)]
+
+def CaloToGainWeightCalc(calo_per_day):
+    # breakfast: 26%, #Lunch: 40%, # Dinner: 34%
+    return [round(calo_per_day*26/100, 2),
+            round(calo_per_day*40/100, 2), round(calo_per_day*34/100, 2)]
+
+def CaloToLoseWeightCalc(calo_per_day):
     # breakfast: 26%, #Lunch: 40%, # Dinner: 34%
     return [round(calo_per_day*26/100, 2),
             round(calo_per_day*40/100, 2), round(calo_per_day*34/100, 2)]
@@ -168,6 +182,7 @@ def extract_rule_right(rule_right):
 
 def extract_rule(rule):
     flag = True
+    # print(rule)
     rule_left, rule_right = rule.split("|")
     flag = extract_rule_left(rule_left)
     if flag is False:
@@ -179,81 +194,6 @@ def extract_rule(rule):
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
-
-
-def update_known(data_rule):
-    count = 0
-    while count <= 13:
-        if extract_rule(data_rule[count]) == True:
-            print("True")
-            count = 0
-    else:
-        count += 1
-
-
-def find_type(list_food, types):
-    result = {}
-    for food in list_food:
-        if list_food[food][0] == types:
-            result[food] = list_food[food]
-    return result
-
-#rule_meal = [0.1, 1]
-
-
-def caculate_gram(rule_meal, calor_food, calor_per_meal):  # return
-    result = None
-
-    calor_food_for_meal = round(rule_meal[0] * calor_per_meal, 2)
-    portion = round(calor_food_for_meal / calor_food * 100, 1)
-
-    result = [calor_food_for_meal, portion]
-    return result
-
-
-def food_not_use_together(list_food, meal):
-    list_food_name = []
-    list_food_not_use = set()
-    for item in meal:
-        for food_name in item:
-            list_food_name.append(food_name)
-            food_not_use = re.findall(r'\[(.*?)\]', list_food[food_name][2])
-            if food_not_use != []:
-                food_not_use = food_not_use[0].split(",")
-                food_not_use = list(
-                    map(lambda x: x.replace("'", ""), food_not_use))
-                for item in food_not_use:
-                    list_food_not_use.add(item.strip())
-    for food in list_food_name:
-        if food in list_food_not_use:
-            return False
-    return True
-
-
-def nCi(n_array, number):
-    result = None
-
-    result = list(itertools.combinations(n_array, number))
-    return result
-
-def caculate_menu_score(menu, list_food):
-    score_real = 0
-    score_abstract = 0
-    confident = None
-    ideal_score = 2
-    for meal in menu:
-        for item in meal:
-            for food in item:
-                score_real += list_food[food][3] # food_score
-                score_abstract += ideal_score
-     
-    confident = round(score_real / score_abstract * 100, 2)
-    menu = (menu, confident)
-    return menu
-#
-# ─── --- ────────────────────────────────────────────────────────────────────────
-#
-
 
 def FindListBreakFast(data):
     # Declear variable
@@ -421,6 +361,7 @@ def FindListLunch(data):
             result.append(item)
     return result
 
+
 def JoinMeal(breakfast_list, lunch_list, dinner_list, list_food):
     result = None
     food = [breakfast_list, lunch_list, dinner_list]
@@ -430,27 +371,77 @@ def JoinMeal(breakfast_list, lunch_list, dinner_list, list_food):
         menu = caculate_menu_score(menu, list_food)
         result[count] = menu
 
-    menu = sorted(menu, key = lambda kv: kv[1], reverse=True)
+    result.sort(key = itemgetter(1), reverse = True)
     print(len(result))
 
     return result
 
-if __name__ == "__main__":
+def main():
     count = 0
     while count <= 13:
+        # print(data_rule[count])
         if extract_rule(data_rule[count]) == True:
-            print("True")
+            # print("True")
             count = 0
+            continue
         else:
+            # print(extract_rule(data_rule[count]))
             count += 1
-    print("------------------")
-    print('known: ', known)
-    print("--------------------")
+    # print("------------------")
+    # print('known: ', known)
+    # print("--------------------")
 
     breakfast_list = FindListBreakFast(known)
     lunch_list = FindListLunch(known)
     dinner_list = FindListDinner(known)
     menu = JoinMeal(breakfast_list, lunch_list, dinner_list, known["ListFood"])
-    print(menu[0])
-    for i in menu[0]:
-        print('i', i)
+    result = random.choice(menu[0:20])
+    return result
+
+if __name__ == "__main__":
+    try:
+        print(sys.argv[1])
+        print("start_function_1")
+        tamp = main()
+        data = open(current_dir + "/Information_user/status_health.txt", 'w', encoding = 'utf8')
+        # print(known['BMIlevel'])
+        # print("ss")
+        data.write(str(known['BMIlevel']) + '\n' + str(known['BMRvalue']) + '\n' + str(known["CaloPerDay"]))
+        print("--------------------------------")
+        data.close()
+        print("done")
+
+    except Exception as v:
+        print(v)
+        try:
+            print("start_function_2")
+            menu_list = []
+
+            for i in range(0,5):
+                menu_list.append(main())
+                known = known_tamp
+            # print("-------------------------")
+        except Exception as e:
+            print('Failed to do something: ' + str(e))
+            print(known)
+            # print(e.message)
+        for count, menu in enumerate(menu_list):
+            f = open(current_dir + "/menu_list/menu_%s.txt" %count, 'w', encoding = 'utf8')
+            for count, element_list in enumerate (menu):
+                if count!=1:
+                    try:
+                        for element in element_list:
+                            for item in element:
+                                for food in item:
+                                    f.write(str(food) + " " + " ".join(list(map(str, item[food]))) + '\n')
+                            f.write("\n")
+                    except Exception as e:
+                        print('count', count)
+                        print ("element: ",  element_list)
+                    
+                else:
+                    f.write(str(element_list))
+
+            f.close()
+        print("done")
+    

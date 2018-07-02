@@ -37,6 +37,20 @@ def food_attribute(label):
                 result[content['p']].append(content['o'])
     return result
 
+def nutrient_attribute(label):
+    result = {"label": label}
+
+    for content in search:
+        if content["label"] == label and content['p'] == "type" and content['o'] != "NamedIndividual":
+            result["type"] = content['o']
+            target_index = search.index(content)
+            text_tamp_next = search[target_index:]
+            break
+    for content in text_tamp_next:
+        if content["label"] == label:
+            result[content['p']] = (content['o'])
+    return result
+
 
 # {'label': '35.00-39.99', 'type': 'Body_Mass_Index_Range', 'value': 'Béo_phì_độ_2'}
 def has_value(label):
@@ -85,6 +99,11 @@ def BMI_level_calc(range):  # Thiếu_cân_rất_nặng
     return has_value(range)["value"]
 
 
+#
+# ─── --- ────────────────────────────────────────────────────────────────────────
+#
+
+    
 def extract_person_information(person):
     result = {}
     result["Person"] = person
@@ -102,7 +121,9 @@ def check_individual_exist(name):
             break
     return flag
 
-# def ListStructureOfBreakFast():
+#
+# ─── --- ────────────────────────────────────────────────────────────────────────
+#
 
 
 def avoided_group_food(illness):
@@ -141,6 +162,19 @@ def limit_food(illness):
     return result
 
 
+#
+# ─── ---- ───────────────────────────────────────────────────────────────────────
+#
+
+
+def illness_list():
+    result = []
+    for content in search:
+        if content["p"] == "type" and content["o"] == "Illness":
+            result.append(content["label"])
+
+    return result
+
 def all_food():
     types = []
     result = []
@@ -162,6 +196,21 @@ def all_food():
             
     return result
 
+def food_nutrient():
+    food = []
+    nutrient = []
+    for content in search:
+        if content["p"] == "Has_calo":
+            food.append(content["label"])
+
+    for content in search:
+        if content['p'] == "Has_lack_of_sb_effect":
+            nutrient.append(content["label"])
+    return food, nutrient
+
+#
+# ─── --- ────────────────────────────────────────────────────────────────────────
+#
 
 def condtion_for_rule_meal(food_default, list_only_food):
     result = []
@@ -169,9 +218,6 @@ def condtion_for_rule_meal(food_default, list_only_food):
         if food in list_only_food:
             result.append(food)
     return result
-
-# [0.4,Cereal,1];[0.2,Dairy_Products,1];[0.3,Fruit,1]
-
 
 def destructure_rule_meal(content, list_only_food):
     result = {}
@@ -188,18 +234,6 @@ def destructure_rule_meal(content, list_only_food):
         else:
             result[food[1]] = [float(food[0]), int(food[2])]
     return result
-
-
-def food_nutrient(food, nutrient):
-    
-    for content in search:
-        if content["p"] == "Has_calo":
-            food.append(content["label"])
-
-    for content in search:
-        if content['p'] == "Has_lack_of_sb_effect":
-            nutrient.append(content["label"])
-    return food, nutrient
 
 
 def list_structure_breakfast(list_food):
@@ -231,17 +265,60 @@ def list_structure_lunch(list_food):
 
 if __name__ == "__main__":
     # print(food_attribute("Cơm"))
-    try:
-        if sys.argv[1] == "food_nutrient":
-            food = []
-            nutrient = []
-            food, nutreint = food_nutrient(food, nutrient)
-            f = open(current_dir + "/search/food_nutrient.txt", 'w', encoding = 'utf8')
-            for food_name in food:
-                f.write(food_name + '\n')
-            for nutrient_name in nutrient:
-                f.write(nutrient_name + '\n')
-            f.close()
-    except:
-        # print(list_structure_breakfast({"sss": ['Fruits', '43', "['Chanh']", 0]}))
-        print(all_food())
+        # if sys.argv[1] == "food_nutrient(food,nutrient":
+    food, nutrient =  food_nutrient()
+    if sys.argv[1] == "food_nutrient()":
+        food, nutreint = eval(sys.argv[1])
+        f = open(current_dir + "/search/food_nutrient.txt", 'w', encoding = 'utf8')
+        for food_name in food:
+            f.write(food_name + '\n')
+        for nutrient_name in nutreint:
+            f.write(nutrient_name + '\n')
+        print("done")
+        f.close()
+    elif sys.argv[1] in food:
+        command = "food_attribute('%s')" %sys.argv[1]
+        result = eval(command)
+        try:
+            f = open(current_dir + "/search/result.txt", 'w', encoding = 'utf8')
+            f.write("Tên thực phẩm: " + str(result['label']) + '\n')
+            f.write("Loại thực phẩm: " + str(result['type']) + '\n')
+            f.write("Calo : " + str(result['Has_calo']) + str("/100g") + '\n')
+            f.write("Những chất dinh dưỡng: " + str(", ".join(result['Has_Nutrient'])) + '\n')
+            f.write("Thời điểm thích hợp ăn: "+ str(result['Has_suitable_time']) + '\n')
+            f.write("Những loại thực phẩm không ăn chung: " + str(", ".join(result['Not_Use_Together'])) + '\n')
+            f.write("Cách chế biến: " + str(result['Has_processing']) + '\n')
+        except:
+            pass
+
+        f.close()
+        print("done")
+    elif sys.argv[1] in nutrient:
+        command = "nutrient_attribute('%s')" %sys.argv[1]
+        result = eval(command)
+        try:
+            f = open(current_dir + "/search/result.txt", 'w', encoding = 'utf8')
+            f.write("Tên chất dinh dưỡng: " + str(result['label']) + '\n')
+            f.write("Loại chất dinh dưỡng: " + str(result['type']) + '\n')
+            f.write("Tác dụng: " + result['Has_effect'] + '\n')
+            f.write("Ảnh hưởng khi thừa: " + result['Has_exceed_effect'] + '\n')
+            f.write("Ảnh hưởng khi thiếu: "+ result['Has_lack_of_sb_effect'] + '\n')
+        except:
+            pass
+
+        f.close()
+        print("done")
+    elif sys.argv[1] == "illness_list()":
+        illness_list = eval(sys.argv[1])
+        f = open(current_dir + "/search/disease.txt", 'w', encoding = 'utf8')
+        for illness_name in illness_list:
+            f.write(str(illness_name) + "\n")
+        print("done")
+        f.close()
+    else:
+        pass
+        # elif sys.argv[1]
+    # except:
+    #     # print(list_structure_breakfast({"sss": ['Fruits', '43', "['Chanh']", 0]}))
+    #     # print(all_food())
+    #     print("Your query maybe wrongs")

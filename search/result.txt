@@ -1,0 +1,7 @@
+Tên thực phẩm: Thịt_gà
+Loại thực phẩm: Poultry
+Calo : 143/100g
+Những chất dinh dưỡng: Protein, Zinc_Kẽm, Cobalamin_B12, Fat_Chất_béo, Niacin_B3, Pantothenic_acid_B5, Phosphorus, Pyridoxine_B6, Riboflavin_B2, Selenium
+Thời điểm thích hợp ăn: Trưa,tối
+Những loại thực phẩm không ăn chung: Cua, Thịt_chó
+Cách chế biến: Chiên,rang,nướng,luộc
