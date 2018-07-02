@@ -4,7 +4,6 @@ import os
 import json
 import re
 
-
 sys.path.append(os.path.join(os.path.dirname("__file__"), '..'))
 current_dir = os.path.dirname("__file__")
 current_dir = current_dir if current_dir is not '' else '.'
@@ -22,8 +21,7 @@ with open(data_dir_path + "/result_after_clean.json", 'r')as f:
 
 # {'label': 'Táo', 'type': 'Fruits', 'has_calo': '52'}
 def food_attribute(label):
-    result = {"label": label, "Has_Nutrient": [],"Not_Use_Together": []}
-
+    result = {"label": label, "Has_Nutrient": [], "Not_Use_Together": []}
 
     for content in search:
         if content["label"] == label and content['p'] == "type" and content['o'] != "NamedIndividual":
@@ -151,20 +149,20 @@ def all_food():
             types.append(content["label"])
     for content in search:
         if content["p"] == "type" and (content["o"] in types):
-            food_attrb = food_attribute(content["label"])
-
             try:
-                if food_attrb["Not_Use_Together"] != []: 
+                food_attrb = food_attribute(content["label"])
+                if food_attrb["Not_Use_Together"] != []:
                     result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
-                                str(food_attrb["Has_calo"]) + "|" + str(food_attrb["Not_Use_Together"]))
-                else: result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
-                                str(food_attrb["Has_calo"]) + "|")
+                                    str(food_attrb["Has_calo"]) + "|" + str(food_attrb["Not_Use_Together"]))
+                else:
+                    result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
+                                    str(food_attrb["Has_calo"]) + "|")
             except:
                 pass
+            
     return result
 
 
-# [0.4,Cereal,1];[0.2,Dairy_Products,1];[0.3,Fruit,1]
 def condtion_for_rule_meal(food_default, list_only_food):
     result = []
     for food in food_default:
@@ -172,10 +170,12 @@ def condtion_for_rule_meal(food_default, list_only_food):
             result.append(food)
     return result
 
+# [0.4,Cereal,1];[0.2,Dairy_Products,1];[0.3,Fruit,1]
+
+
 def destructure_rule_meal(content, list_only_food):
     result = {}
     food_list = re.findall(r'\[(.*?)\]', content)
-    print(food_list)
     for food_attrb in food_list:
         food = food_attrb.split(",")
         if "{" in food[1]:
@@ -183,17 +183,31 @@ def destructure_rule_meal(content, list_only_food):
             food_default = food[1].split("{")[1]
             food_default = food_default.split("|")
             # return result{"fix": ["food_name", "portion", "quanity"]}
-            result["fix"] = [condtion_for_rule_meal(food_default, list_only_food)
-                             ,float(food[0]), int(food[2])]
+            result["fix"] = [condtion_for_rule_meal(
+                food_default, list_only_food), float(food[0]), int(food[2])]
         else:
             result[food[1]] = [float(food[0]), int(food[2])]
     return result
 
+
+def food_nutrient(food, nutrient):
+    
+    for content in search:
+        if content["p"] == "Has_calo":
+            food.append(content["label"])
+
+    for content in search:
+        if content['p'] == "Has_lack_of_sb_effect":
+            nutrient.append(content["label"])
+    return food, nutrient
+
+
 def list_structure_breakfast(list_food):
     list_rule = []
     for content in search:
-        if content["label"] == 'StructureOfBreakfast' and content["p"] == "Has_structure":
-            list_rule.append(destructure_rule_meal(content["o"], list_food))
+        if content["label"] == 'StructureOfBreakFast' and content["p"] == "Has_structure":
+            list_rule.append(destructure_rule_meal(
+                content["o"], list_food))
     return list_rule
 
 
@@ -201,7 +215,8 @@ def list_structure_dinner(list_food):
     list_rule = []
     for content in search:
         if content["label"] == 'StructureOfDinner' and content["p"] == "Has_structure":
-            list_rule.append(destructure_rule_meal(content["o"], list_food))
+            list_rule.append(destructure_rule_meal(
+                content["o"], list_food))
     return list_rule
 
 
@@ -209,10 +224,24 @@ def list_structure_lunch(list_food):
     list_rule = []
     for content in search:
         if content["label"] == 'StructureOfLunch' and content["p"] == "Has_structure":
-            print(content['o'])
-            list_rule.append(destructure_rule_meal(content["o"], list_food))
+            list_rule.append(destructure_rule_meal(
+                content["o"], list_food))
     return list_rule
 
 
 if __name__ == "__main__":
-    print(all_food()) 
+    # print(food_attribute("Cơm"))
+    try:
+        if sys.argv[1] == "food_nutrient":
+            food = []
+            nutrient = []
+            food, nutreint = food_nutrient(food, nutrient)
+            f = open(current_dir + "/search/food_nutrient.txt", 'w', encoding = 'utf8')
+            for food_name in food:
+                f.write(food_name + '\n')
+            for nutrient_name in nutrient:
+                f.write(nutrient_name + '\n')
+            f.close()
+    except:
+        # print(list_structure_breakfast({"sss": ['Fruits', '43', "['Chanh']", 0]}))
+        print(all_food())
