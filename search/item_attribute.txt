@@ -1,0 +1,5 @@
+Tên chất dinh dưỡng: A_Vitamin
+Loại chất dinh dưỡng: Vitamins
+Tác dụng: Tăng sức đề kháng, bảo vệ mắt, chống ung thư, da trẻ
+Ảnh hưởng khi thừa: Buồn nôn, vàng da, gây hại cho thai nhi	
+Ảnh hưởng khi thiếu: Triệu chứng quáng gà, khô mắt, đục thủy tinh thể, có thể gây mù mắt do bệnh khô mắt, răng yếu mau hỏng, da khô có vẩy, tóc khô giòn, cơ thể dễ bị nhiễm khuẩn, xương chậm phát triển

@@ -1,0 +1,9 @@
+Cereal
+Dairy_Products
+Egg_Products
+Fruits
+Meat
+Poultry
+SeaFood
+Starch
+Vegetables

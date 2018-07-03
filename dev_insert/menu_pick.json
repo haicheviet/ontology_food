@@ -1,0 +1,8 @@
+{
+    "Breakfast": "(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)",
+    "Lunch": "(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)",
+    "Dinner": [["Thịt_bò", "320", "127"], ["Thịt_chó", "332", "122"]],
+    "Has_name": "Hai",
+    "Has_information": "height: 32, wwight:3333",
+    "Score": 65
+}

@@ -54,7 +54,7 @@ def BMRvalueOfMaleCalc(height, weight, age):
 
 
 def BMRvalueOfFemaleCalc(height, weight, age):
-    result = function[1].split("=")[1]
+    result = function[0].split("=")[1]
     return round(eval(result), 2)
 
 #
