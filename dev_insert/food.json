@@ -1,0 +1,9 @@
+{
+    "name": "Kiwi",
+    "type": "Fruits",
+    "calo": 56,
+    "Has_processing": "Nước ép, sinh tố...",
+    "Has_suitable_time": "Sáng,trưa,tối",
+    "Has_Nutrient": ["A_Vitamin"],
+    "Not_use_together": ["Thịt_gà", "Thịt_bò"]
+}

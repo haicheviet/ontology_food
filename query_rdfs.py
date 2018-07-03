@@ -51,7 +51,11 @@ def nutrient_attribute(label):
             result[content['p']] = (content['o'])
     return result
 
+#
+# ─── --- ────────────────────────────────────────────────────────────────────────
+#
 
+    
 # {'label': '35.00-39.99', 'type': 'Body_Mass_Index_Range', 'value': 'Béo_phì_độ_2'}
 def has_value(label):
     result = {}
@@ -71,6 +75,10 @@ def has_value(label):
             if content["label"] == label and content["p"] == "Has_Body_Mass_Index_Level":
                 result["value"] = content['o']
     return result
+
+#
+# ─── --- ────────────────────────────────────────────────────────────────────────
+#
 
 # def BMI_value_calc(height,weight):
 
@@ -208,6 +216,20 @@ def food_nutrient():
             nutrient.append(content["label"])
     return food, nutrient
 
+def food_type():
+    types = []
+    for content in search:
+        if content["p"] == "subClassOf" and content["o"] == "Food_Items":
+            types.append(content["label"])
+    return types
+
+def nutrient_type():
+    types = []
+    for content in search:
+        if content["p"] == "subClassOf" and content["o"] == "Nutrients":
+            types.append(content["label"])
+    return types
+
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
@@ -262,25 +284,25 @@ def list_structure_lunch(list_food):
                 content["o"], list_food))
     return list_rule
 
-
-if __name__ == "__main__":
-    # print(food_attribute("Cơm"))
-        # if sys.argv[1] == "food_nutrient(food,nutrient":
+def main():
     food, nutrient =  food_nutrient()
     if sys.argv[1] == "food_nutrient()":
         food, nutreint = eval(sys.argv[1])
-        f = open(current_dir + "/search/food_nutrient.txt", 'w', encoding = 'utf8')
+        f = open(current_dir + "/search/food.txt", 'w', encoding = 'utf8')
+        n = open(current_dir + "/search/nutrient.txt", 'w', encoding = 'utf8')
         for food_name in food:
             f.write(food_name + '\n')
+        
         for nutrient_name in nutreint:
-            f.write(nutrient_name + '\n')
+            n.write(nutrient_name + '\n')
         print("done")
+        n.close()
         f.close()
-    elif sys.argv[1] in food:
+    elif sys.argv[1] in food: #print food_attribute
         command = "food_attribute('%s')" %sys.argv[1]
         result = eval(command)
         try:
-            f = open(current_dir + "/search/result.txt", 'w', encoding = 'utf8')
+            f = open(current_dir + "/search/item_attribute.txt", 'w', encoding = 'utf8')
             f.write("Tên thực phẩm: " + str(result['label']) + '\n')
             f.write("Loại thực phẩm: " + str(result['type']) + '\n')
             f.write("Calo : " + str(result['Has_calo']) + str("/100g") + '\n')
@@ -293,32 +315,45 @@ if __name__ == "__main__":
 
         f.close()
         print("done")
-    elif sys.argv[1] in nutrient:
+    elif sys.argv[1] in nutrient: #print nutrient_attribute
         command = "nutrient_attribute('%s')" %sys.argv[1]
         result = eval(command)
         try:
-            f = open(current_dir + "/search/result.txt", 'w', encoding = 'utf8')
+            f = open(current_dir + "/search/item_attribute.txt", 'w', encoding = 'utf8')
             f.write("Tên chất dinh dưỡng: " + str(result['label']) + '\n')
             f.write("Loại chất dinh dưỡng: " + str(result['type']) + '\n')
             f.write("Tác dụng: " + result['Has_effect'] + '\n')
             f.write("Ảnh hưởng khi thừa: " + result['Has_exceed_effect'] + '\n')
             f.write("Ảnh hưởng khi thiếu: "+ result['Has_lack_of_sb_effect'] + '\n')
+            # f.write("Thực phẩm có: " + re
         except:
             pass
 
         f.close()
         print("done")
-    elif sys.argv[1] == "illness_list()":
+
+    elif sys.argv[1] == "illness_list()": #print illness_líst
         illness_list = eval(sys.argv[1])
         f = open(current_dir + "/search/disease.txt", 'w', encoding = 'utf8')
         for illness_name in illness_list:
             f.write(str(illness_name) + "\n")
         print("done")
         f.close()
+    elif "type" in sys.argv[1]:
+        command = sys.argv[1]
+        list_items = eval(command)
+        f = open(current_dir + "/search/%s.txt"%command[:-2], 'w', encoding = 'utf8')
+        for item in list_items:
+            f.write(str(item) + '\n')
+        print("done")
+        f.close()
+
     else:
-        pass
-        # elif sys.argv[1]
-    # except:
-    #     # print(list_structure_breakfast({"sss": ['Fruits', '43', "['Chanh']", 0]}))
-    #     # print(all_food())
-    #     print("Your query maybe wrongs")
+        command = sys.argv[1]
+        print(eval(command))
+
+if __name__ == "__main__":
+    try:
+        main()
+    except:
+        print("Your query maybe wrongs")
