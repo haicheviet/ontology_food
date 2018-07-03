@@ -2957,6 +2957,20 @@
     </NamedIndividual>
     
 
+     <!-- http://www.co-ode.org/ontologies/ont.owl#Menu_07-03.22:33 -->
+
+    <NamedIndividual rdf:about="&ont;Menu_07-03.22:33">
+        <rdf:type rdf:resource="&ont;Menu"/>
+        <ont:Has_Score rdf:datatype="&xsd;float">65</ont:Has_Score>
+        <ont:Has_Dinner_Menu rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_gà, 33, 44)</ont:Has_Dinner_Menu>
+        <ont:Has_name_user rdf:datatype="&xsd;string">Hai</ont:Has_name_user>
+        <ont:Has_Lunch_Menu rdf:datatype="&xsd;string">What up bro</ont:Has_Lunch_Menu>
+        <ont:Has_Infomation rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)</ont:Has_Infomation>
+        <ont:Has_Breakfast_Menu rdf:datatype="&xsd;string">height: 32, wwight:3333</ont:Has_Breakfast_Menu>
+    </NamedIndividual>
+        
+
+
 
     <!-- http://www.co-ode.org/ontologies/ont.owl#Ổi -->
 

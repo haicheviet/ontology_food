@@ -1,7 +1,0 @@
-Tên thực phẩm: Táo
-Loại thực phẩm: Fruits
-Calo : 52/100g
-Những chất dinh dưỡng: C_Vitamin, Carbohydrate
-Thời điểm thích hợp ăn: Sáng,trưa,tối
-Những loại thực phẩm không ăn chung: Lươn
-Cách chế biến: Nước ép, sinh tố...

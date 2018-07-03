@@ -2,7 +2,7 @@ from query_rdfs import check_individual_exist
 import json
 import sys
 import os
-
+from time import localtime, strftime
 
 sys.path.append(os.path.join(os.path.dirname("__file__"), '..'))
 current_dir = os.path.dirname("__file__")
@@ -59,7 +59,6 @@ def insert_individual_food(
     else:
         print("Your food's already in database")
 
-
 def insert_individual_nutrient(
         name, types, Has_exceed_effect,
         Has_lack_of_sb_effect, Has_effect, root_file):
@@ -91,12 +90,12 @@ def insert_individual_nutrient(
         print("Your nutrient's already in database")
 
 
-def insert_menu(date, input_menu):
+def insert_menu(date, input_menu, root_file):
     name = "Menu_" + str(date)
     template = """
      <!-- http://www.co-ode.org/ontologies/ont.owl#{} -->
 
-    <NamedIndividual rdf:about="&ont;{Menu_23/3/2018}">
+    <NamedIndividual rdf:about="&ont;{}">
         <rdf:type rdf:resource="&ont;Menu"/>
         <ont:Has_Score rdf:datatype="&xsd;float">{}</ont:Has_Score>
         <ont:Has_Dinner_Menu rdf:datatype="&xsd;string">{}</ont:Has_Dinner_Menu>
@@ -105,10 +104,10 @@ def insert_menu(date, input_menu):
         <ont:Has_Infomation rdf:datatype="&xsd;string">{}</ont:Has_Infomation>
         <ont:Has_Breakfast_Menu rdf:datatype="&xsd;string">{}</ont:Has_Breakfast_Menu>
     </NamedIndividual>
-        \n\n\n""".format(name, name, input_menu['Has_Score'],
-                         input_menu['Has_Dinner'], input_menu('Has_Name'),
-                         input_menu['Has_Lunch'], input_menu['Has_Information'],
-                         input_menu['Has_Breakfast'])
+        \n\n\n""".format(name, name, input_menu['Score'],
+                         input_menu['Dinner'], input_menu['Has_name'],
+                         input_menu['Lunch'], input_menu['Has_information'],
+                         input_menu['Breakfast'])
     line_to_replace = -41
     if check_individual_exist(name):
         with open(root_file, 'r', encoding="utf8") as file:
@@ -130,6 +129,10 @@ if __name__ == "__main__":
         food = json.load(food_data)
     with open(data_dir_path + "/nutrient.json", 'r', encoding='utf8') as nutrient_data:
         nutrient = json.load(nutrient_data)
+    with open(data_dir_path + "/menu_pick.json", 'r', encoding='utf8') as menu_data:
+        menu = json.load(menu_data)
+    time = strftime("%m-%d.%H:%M", localtime())
+
     root_file = current_dir + "/data_raw/rdf-copy.owl"
     if sys.argv[1] == 'food':
         insert_individual_food(
@@ -141,3 +144,5 @@ if __name__ == "__main__":
             nutrient["name"], nutrient['type'], nutrient['Has_exceed_effect'],
             nutrient['Has_lack_of_sb_effect'], nutrient["Has_effect"], root_file
         )
+    elif sys.argv[1] == 'menu':
+        insert_menu(time, menu, root_file)

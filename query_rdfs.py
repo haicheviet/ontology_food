@@ -22,6 +22,7 @@ with open(data_dir_path + "/result_after_clean.json", 'r')as f:
 # {'label': 'Táo', 'type': 'Fruits', 'has_calo': '52'}
 def food_attribute(label):
     result = {"label": label, "Has_Nutrient": [], "Not_Use_Together": []}
+    text_tamp_next = None
 
     for content in search:
         if content["label"] == label and content['p'] == "type" and content['o'] != "NamedIndividual":
@@ -49,6 +50,14 @@ def nutrient_attribute(label):
     for content in text_tamp_next:
         if content["label"] == label:
             result[content['p']] = (content['o'])
+    return result
+
+def class_individual(class_label):
+    result = []
+    for content in search:
+        if content['p'] == "type" and content['o'] == class_label:
+            result.append(content['label'])
+
     return result
 
 #
@@ -79,8 +88,6 @@ def has_value(label):
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
-
-# def BMI_value_calc(height,weight):
 
 
 def BMI_range_calc(value):
@@ -184,15 +191,12 @@ def illness_list():
     return result
 
 def all_food():
-    types = []
     result = []
+
     for content in search:
-        if content["p"] == "subClassOf" and content["o"] == "Food_Items":
-            types.append(content["label"])
-    for content in search:
-        if content["p"] == "type" and (content["o"] in types):
+        if content["p"] == "Has_calo":
+            food_attrb = food_attribute(content["label"])
             try:
-                food_attrb = food_attribute(content["label"])
                 if food_attrb["Not_Use_Together"] != []:
                     result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
                                     str(food_attrb["Has_calo"]) + "|" + str(food_attrb["Not_Use_Together"]))
@@ -325,7 +329,6 @@ def main():
             f.write("Tác dụng: " + result['Has_effect'] + '\n')
             f.write("Ảnh hưởng khi thừa: " + result['Has_exceed_effect'] + '\n')
             f.write("Ảnh hưởng khi thiếu: "+ result['Has_lack_of_sb_effect'] + '\n')
-            # f.write("Thực phẩm có: " + re
         except:
             pass
 
@@ -336,17 +339,33 @@ def main():
         illness_list = eval(sys.argv[1])
         f = open(current_dir + "/search/disease.txt", 'w', encoding = 'utf8')
         for illness_name in illness_list:
-            f.write(str(illness_name) + "\n")
+            if "?" not in illness_name:
+                f.write(str(illness_name) + "\n")
+            else: pass
         print("done")
         f.close()
-    elif "type" in sys.argv[1]:
+    elif "type" in sys.argv[1]: #print type of class
         command = sys.argv[1]
         list_items = eval(command)
         f = open(current_dir + "/search/%s.txt"%command[:-2], 'w', encoding = 'utf8')
         for item in list_items:
-            f.write(str(item) + '\n')
+            if "?" not in item:
+                f.write(str(item) + '\n')
+            else: pass
         print("done")
         f.close()
+    elif "class" in sys.argv[1]:
+        command = sys.argv[1]
+        list_items = eval(command)
+        f = open(current_dir + "/search/class_individual.txt", 'w', encoding = 'utf8')
+        for item in list_items:
+            if "?" not in item:
+                f.write(str(item) + '\n')
+            else: pass
+        print("done")
+        f.close()
+    elif "testing" == sys.argv[1]:
+        print(eval(sys.argv[2]))
 
     else:
         command = sys.argv[1]
@@ -355,5 +374,6 @@ def main():
 if __name__ == "__main__":
     try:
         main()
-    except:
+    except Exception as e:
         print("Your query maybe wrongs")
+        print("Your mistake: ", e)

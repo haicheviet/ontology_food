@@ -2,5 +2,6 @@ python query_rdfs.py food_nutrient() => food.txt, nutrient.txt
 python query_rdfs.py illness_list() => disease.txt
 python query_rdfs.py food_type() or nutrient_type() => nutrient_type.txt or food_type.txt
 python query_rdfs.py "name_of_item" => item_attribute.txt
-python query_rdfs.py "function(variable" => print(function_result) #For testing
+python query_rdfs.py class_individual('Fruits') #Class_name => class_individual.txt
+python query_rdfs.py "function(variable)" => print(function_result) #For testing
  
