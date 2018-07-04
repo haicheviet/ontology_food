@@ -1,0 +1,8 @@
+python create_individual.py food 
+python create_individual.py nutrient
+python create_individual.py menu
+
+if item's already in database => Your nutrient's already in database
+else => done
+After insert, run this command to update data 
+python clean_data.py

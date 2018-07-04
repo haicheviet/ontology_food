@@ -395,7 +395,7 @@ def main():
     lunch_list = FindListLunch(known)
     dinner_list = FindListDinner(known)
     menu = JoinMeal(breakfast_list, lunch_list, dinner_list, known["ListFood"])
-    result = random.choice(menu[0:20])
+    result = random.choice(menu[0:7000])
     return result
 
 if __name__ == "__main__":
@@ -420,11 +420,9 @@ if __name__ == "__main__":
             for i in range(0,5):
                 menu_list.append(main())
                 known = known_tamp
-            # print("-------------------------")
         except Exception as e:
             print('Failed to do something: ' + str(e))
             print(known)
-            # print(e.message)
         for count, menu in enumerate(menu_list):
             f = open(current_dir + "/menu_list/menu_%s.txt" %count, 'w', encoding = 'utf8')
             for count, element_list in enumerate (menu):

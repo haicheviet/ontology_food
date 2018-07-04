@@ -60,6 +60,22 @@ def class_individual(class_label):
 
     return result
 
+def food_calo():
+    result = {}
+
+    for content in search:
+        if content['p'] == "Has_calo":
+            result[content['label']] = content['o']
+    return result
+
+def find_food_by_calo(calor_begin, calo_end):
+    result = []
+    list_food = food_calo()
+    for calo in range(calor_begin, calo_end+1):
+        for key, value in list_food.items():
+            if int(value) == calo:
+                result.append(key)
+    return result
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
@@ -270,7 +286,6 @@ def list_structure_breakfast(list_food):
                 content["o"], list_food))
     return list_rule
 
-
 def list_structure_dinner(list_food):
     list_rule = []
     for content in search:
@@ -288,7 +303,7 @@ def list_structure_lunch(list_food):
                 content["o"], list_food))
     return list_rule
 
-def main():
+def main_query():
     food, nutrient =  food_nutrient()
     if sys.argv[1] == "food_nutrient()":
         food, nutreint = eval(sys.argv[1])
@@ -344,6 +359,7 @@ def main():
             else: pass
         print("done")
         f.close()
+
     elif "type" in sys.argv[1]: #print type of class
         command = sys.argv[1]
         list_items = eval(command)
@@ -354,6 +370,7 @@ def main():
             else: pass
         print("done")
         f.close()
+
     elif "class" in sys.argv[1]:
         command = sys.argv[1]
         list_items = eval(command)
@@ -364,6 +381,18 @@ def main():
             else: pass
         print("done")
         f.close()
+
+    elif 'find_food_by_calo' in sys.argv[1]:
+        command = sys.argv[1]
+        list_items = eval(command)
+        f = open(current_dir + "/search/food_by_calo.txt", 'w', encoding = 'utf8')
+        for item in list_items:
+            if "?" not in item:
+                f.write(str(item) + '\n')
+            else: pass
+        print("done")
+        f.close()
+
     elif "testing" == sys.argv[1]:
         print(eval(sys.argv[2]))
 
@@ -373,7 +402,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        main_query()
     except Exception as e:
         print("Your query maybe wrongs")
         print("Your mistake: ", e)

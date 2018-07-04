@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from owlready2 import *
+from owlready2 import World, sync_reasoner, re
 import sys
 import os
 import json
@@ -22,13 +22,6 @@ class SparqlQueries:
                 "WHERE { " \
                 "?s ?p ?o . " \
                 "}"
-
-#         query = """
-#                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-#                 PREFIX FoodKB: <http://websemantic.net/2013/FoodKB#>
-#                 SELECT ?label
-#                 WHERE { <http://websemantic.net/2013/FoodKB#Has_Activity_Level> rdfs:label ?label} }
-#             """
 
         resultsList = self.graph.query(query)
 

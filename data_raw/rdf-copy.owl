@@ -1723,6 +1723,14 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Khỏe_mạnh -->
+
+    <NamedIndividual rdf:about="&ont;Khỏe_mạnh">
+        <rdf:type rdf:resource="&ont;Illness"/>
+    </NamedIndividual>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Khổ_qua -->
 
     <NamedIndividual rdf:about="&ont;Khổ_qua">
@@ -1802,6 +1810,34 @@
         <ont:Has_exceed_effect>Suy nhược, teo tinh hoàn, mất khả năng sinh sản và làm suy giảm sự hoạt động của một số enzym.</ont:Has_exceed_effect>
         <ont:Has_effect>Nguyên tố cần thiết có liên quan tới sự sinh sản, sự phát triển của xương, cảm giác giữ thăng bằng, sự hoạt động của não, sự tổng hợp của cholesterol, việc điều chỉnh nồng độ glucose trong máu, sự đông máu</ont:Has_effect>
         <ont:Has_lack_of_sb_effect>Tổn hại phổi, hệ thống thần kinh, thận, hệ tim mạch, các tinh hoàn cũng có thể bị tổn hại</ont:Has_lack_of_sb_effect>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Menu_07-03.22:33 -->
+
+    <NamedIndividual rdf:about="&ont;Menu_07-03.22:33">
+        <rdf:type rdf:resource="&ont;Menu"/>
+        <ont:Has_Infomation rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)</ont:Has_Infomation>
+        <ont:Has_Dinner_Menu rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_gà, 33, 44)</ont:Has_Dinner_Menu>
+        <ont:Has_Score rdf:datatype="&xsd;float">65.0</ont:Has_Score>
+        <ont:Has_name_user rdf:datatype="&xsd;string">Hai</ont:Has_name_user>
+        <ont:Has_Lunch_Menu rdf:datatype="&xsd;string">What up bro</ont:Has_Lunch_Menu>
+        <ont:Has_Breakfast_Menu rdf:datatype="&xsd;string">height: 32, wwight:3333</ont:Has_Breakfast_Menu>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Menu_07-03.22:39 -->
+
+    <NamedIndividual rdf:about="&ont;Menu_07-03.22:39">
+        <rdf:type rdf:resource="&ont;Menu"/>
+        <ont:Has_Infomation rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)</ont:Has_Infomation>
+        <ont:Has_Dinner_Menu rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_gà, 33, 44)</ont:Has_Dinner_Menu>
+        <ont:Has_Score rdf:datatype="&xsd;float">65.0</ont:Has_Score>
+        <ont:Has_name_user rdf:datatype="&xsd;string">Hai</ont:Has_name_user>
+        <ont:Has_Lunch_Menu rdf:datatype="&xsd;string">What up bro</ont:Has_Lunch_Menu>
+        <ont:Has_Breakfast_Menu rdf:datatype="&xsd;string">height: 32, wwight:3333</ont:Has_Breakfast_Menu>
     </NamedIndividual>
     
 
@@ -2956,20 +2992,6 @@
         <ont:Has_Nutrient rdf:resource="&ont;Protein"/>
     </NamedIndividual>
     
-
-     <!-- http://www.co-ode.org/ontologies/ont.owl#Menu_07-03.22:33 -->
-
-    <NamedIndividual rdf:about="&ont;Menu_07-03.22:33">
-        <rdf:type rdf:resource="&ont;Menu"/>
-        <ont:Has_Score rdf:datatype="&xsd;float">65</ont:Has_Score>
-        <ont:Has_Dinner_Menu rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_gà, 33, 44)</ont:Has_Dinner_Menu>
-        <ont:Has_name_user rdf:datatype="&xsd;string">Hai</ont:Has_name_user>
-        <ont:Has_Lunch_Menu rdf:datatype="&xsd;string">What up bro</ont:Has_Lunch_Menu>
-        <ont:Has_Infomation rdf:datatype="&xsd;string">(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)</ont:Has_Infomation>
-        <ont:Has_Breakfast_Menu rdf:datatype="&xsd;string">height: 32, wwight:3333</ont:Has_Breakfast_Menu>
-    </NamedIndividual>
-        
-
 
 
     <!-- http://www.co-ode.org/ontologies/ont.owl#Ổi -->
