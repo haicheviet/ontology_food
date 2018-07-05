@@ -1,0 +1,9 @@
+Tổng lượng calo của thực đơn: 1253.34
+Lượng calo cần cung cấp theo thể trạng: 1344.0
+Lượng calo chêch lệch: -90.66000000000008
+Tỉ lệ cho 3 bữa: 31.58 34.21 34.21
+Đề xuất: Bữa sáng : 22-30%, Bữa trưa: 35-45%, Bữa tối: 30-38%
+Cặp thực phẩm không dùng chung: Thịt_dê - Dưa_hấu
+Thực phẩm nên tránh: Bánh_mì, Khoai_mì, Khoai_tây, Peanut
+Thực phẩm nên ăn: Bắp, Cà_rốt, Mực, Nho, Dưa_hấu, Táo
+hực phẩm cần hạn chế: 

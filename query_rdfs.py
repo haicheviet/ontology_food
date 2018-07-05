@@ -18,35 +18,107 @@ with open(data_dir_path + "/result_after_clean.json", 'r')as f:
 # ─── QUERY DEF ──────────────────────────────────────────────────────────────────
 #
 
+def illness_list():
+    result = []
+    for content in search:
+        if content["p"] == "type" and content["o"] == "Illness":
+            result.append(content["label"])
+
+    return result
+
+def all_food():
+    result = []
+
+    for content in search:
+        if content["p"] == "Has_calo":
+            food_attrb = food_attribute(content["label"])
+            try:
+                if food_attrb["Not_Use_Together"] != []:
+                    result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
+                                    str(food_attrb["Has_calo"]) + "|" + str(food_attrb["Not_Use_Together"]))
+                else:
+                    result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
+                                    str(food_attrb["Has_calo"]) + "|")
+            except:
+                pass
+            
+    return result
+
+def food_nutrient():
+    food = []
+    nutrient = []
+    for content in search:
+        if content["p"] == "Has_calo":
+            food.append(content["label"])
+
+    for content in search:
+        if content['p'] == "Has_lack_of_sb_effect":
+            nutrient.append(content["label"])
+    return food, nutrient
+
+def food_type():
+    types = []
+    for content in search:
+        if content["p"] == "subClassOf" and content["o"] == "Food_Items":
+            types.append(content["label"])
+    return types
+
+def nutrient_type():
+    types = []
+    for content in search:
+        if content["p"] == "subClassOf" and content["o"] == "Nutrients":
+            types.append(content["label"])
+    return types
+
+def food_calo():
+    result = {}
+
+    for content in search:
+        if content['p'] == "Has_calo":
+            result[content['label']] = content['o']
+    return result
+
+#
+# ─── ---- ───────────────────────────────────────────────────────────────────────
+#
 
 # {'label': 'Táo', 'type': 'Fruits', 'has_calo': '52'}
 def food_attribute(label):
-    result = {"label": label, "Has_Nutrient": [], "Not_Use_Together": []}
+    result = {"label": label, "Has_Nutrient": [], "Not_Use_Together": [], "illness_should_not_use": []}
     text_tamp_next = None
+    group_food = None
 
     for content in search:
         if content["label"] == label and content['p'] == "type" and content['o'] != "NamedIndividual":
             result["type"] = content['o']
             target_index = search.index(content)
             text_tamp_next = search[target_index:]
-            break
+        elif content["p"] == "Has_Food" and content["o"] == label:
+            group_food = content["label"]
+
     for content in text_tamp_next:
         if content["label"] == label:
             if content['p'] != "Has_Nutrient" and content['p'] != "Not_Use_Together":
                 result[content['p']] = content['o']
             else:
                 result[content['p']].append(content['o'])
+    
+    for content in search:
+        if content["p"] == "Avoid_Group_Food" and content["o"] == group_food:
+            result["illness_should_not_use"].append(content['label'])
     return result
 
 def nutrient_attribute(label):
-    result = {"label": label}
+    result = {"label": label, "food": []}
 
     for content in search:
         if content["label"] == label and content['p'] == "type" and content['o'] != "NamedIndividual":
             result["type"] = content['o']
             target_index = search.index(content)
             text_tamp_next = search[target_index:]
-            break
+        elif content["p"] == "Has_Nutrient" and content["o"] == label:
+            result["food"].append(content['label'])
+
     for content in text_tamp_next:
         if content["label"] == label:
             result[content['p']] = (content['o'])
@@ -58,14 +130,6 @@ def class_individual(class_label):
         if content['p'] == "type" and content['o'] == class_label:
             result.append(content['label'])
 
-    return result
-
-def food_calo():
-    result = {}
-
-    for content in search:
-        if content['p'] == "Has_calo":
-            result[content['label']] = content['o']
     return result
 
 def find_food_by_calo(calor_begin, calo_end):
@@ -192,64 +256,6 @@ def limit_food(illness):
             result.append(content["o"])
     return result
 
-
-#
-# ─── ---- ───────────────────────────────────────────────────────────────────────
-#
-
-
-def illness_list():
-    result = []
-    for content in search:
-        if content["p"] == "type" and content["o"] == "Illness":
-            result.append(content["label"])
-
-    return result
-
-def all_food():
-    result = []
-
-    for content in search:
-        if content["p"] == "Has_calo":
-            food_attrb = food_attribute(content["label"])
-            try:
-                if food_attrb["Not_Use_Together"] != []:
-                    result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
-                                    str(food_attrb["Has_calo"]) + "|" + str(food_attrb["Not_Use_Together"]))
-                else:
-                    result.append(str(food_attrb["label"]) + "|" + str(food_attrb["type"]) + "|" +
-                                    str(food_attrb["Has_calo"]) + "|")
-            except:
-                pass
-            
-    return result
-
-def food_nutrient():
-    food = []
-    nutrient = []
-    for content in search:
-        if content["p"] == "Has_calo":
-            food.append(content["label"])
-
-    for content in search:
-        if content['p'] == "Has_lack_of_sb_effect":
-            nutrient.append(content["label"])
-    return food, nutrient
-
-def food_type():
-    types = []
-    for content in search:
-        if content["p"] == "subClassOf" and content["o"] == "Food_Items":
-            types.append(content["label"])
-    return types
-
-def nutrient_type():
-    types = []
-    for content in search:
-        if content["p"] == "subClassOf" and content["o"] == "Nutrients":
-            types.append(content["label"])
-    return types
-
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
@@ -329,6 +335,7 @@ def main_query():
             f.write("Thời điểm thích hợp ăn: "+ str(result['Has_suitable_time']) + '\n')
             f.write("Những loại thực phẩm không ăn chung: " + str(", ".join(result['Not_Use_Together'])) + '\n')
             f.write("Cách chế biến: " + str(result['Has_processing']) + '\n')
+            f.write("Những bệnh không nên dùng thực phẩm này: " + str(", ".join(result['illness_should_not_use'])) + '\n')
         except:
             pass
 
@@ -344,6 +351,7 @@ def main_query():
             f.write("Tác dụng: " + result['Has_effect'] + '\n')
             f.write("Ảnh hưởng khi thừa: " + result['Has_exceed_effect'] + '\n')
             f.write("Ảnh hưởng khi thiếu: "+ result['Has_lack_of_sb_effect'] + '\n')
+            f.write("Những món ăn có chất dinh dưỡng này: " +  str(", ".join(result['food'])) + '\n')
         except:
             pass
 
@@ -389,6 +397,17 @@ def main_query():
         for item in list_items:
             if "?" not in item:
                 f.write(str(item) + '\n')
+            else: pass
+        print("done")
+        f.close()
+
+    elif "food_calo" in sys.argv[1]:
+        command = sys.argv[1]
+        list_items = eval(command)
+        f = open(current_dir + "/search/food_and_calo.txt", 'w', encoding = 'utf8')
+        for item, value in list_items.items():
+            if "?" not in item:
+                f.write(str(item) + " " + str(value) + '\n')
             else: pass
         print("done")
         f.close()

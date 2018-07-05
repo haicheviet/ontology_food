@@ -1,6 +1,6 @@
 {
     "Has_Breakfast": [["Cơm", 226.16, 110.9], ["Trứng_gà", 84.81, 22], ["Thịt_dê", 84.81, 24]],
     "Has_Lunch": [["Cơm", 226.16, 110.9], ["Trứng_gà", 84.81, 22], ["Thịt_dê", 84.81, 24], ["Thịt_bò", 33, 55]],
-    "Has_Dinner":  [["Dưa_hấu", 226.16, 110.9], ["Đậu_đỏ", 84.81, 22], ["Hẹ", 84.81, 24], ["Kiwi", 33, 55]],
+    "Has_Dinner":  [["Dưa_hấu", 226.16, 110.9], ["Thịt_dê", 84.81, 22], ["Hẹ", 84.81, 24], ["Kiwi", 33, 55]],
     "Known": {"weight":32,"height":165,"PhysicalActiveLevel":"Hoạt động vừa","age":21,"name":"Biển","target":"giảm cân","gender":"nam","ListIllness":"Bệnh_béo_phì"}
 }
