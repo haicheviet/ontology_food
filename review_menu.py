@@ -12,12 +12,14 @@ current_dir = os.path.dirname("__file__")
 current_dir = current_dir if current_dir is not '' else '.'
 # directory to scan for any txt files
 data_dir_path = current_dir + '/menu_review'
+known_dir_path = current_dir + '/Information_user'
 rule_dir_path = current_dir + "/rule"
 
 
 with open(data_dir_path + "/menu.json", 'r', encoding='utf8') as lst:
     data = json.load(lst)
-known = data["Known"]
+with open(known_dir_path + "/known.json", 'r', encoding='utf8') as lst:
+    known = json.load(lst)
 known["BreakFast"] = data["Has_Breakfast"]
 known["Lunch"] = data["Has_Lunch"]
 known["Dinner"] = data["Has_Dinner"]
@@ -282,15 +284,16 @@ def main():
     f = open(data_dir_path + "/result_review.txt", "w", encoding="utf8")
     f.write("Tổng lượng calo của thực đơn: " + str(calo_real) + '\n')
     f.write("Lượng calo cần cung cấp theo thể trạng: " + str(known["CaloPerDay"]) + '\n')
-    f.write("Lượng calo chêch lệch: " + str(calo_real - known["CaloPerDay"]) + '\n')
+    f.write("Lượng calo chêch lệch: " + str(round(calo_real - known["CaloPerDay"], 2)) + '\n')
     f.write("Tỉ lệ cho 3 bữa: " + " ".join(percetage_real) + '\n')
     if flag == False:
         f.write("Đề xuất: Bữa sáng : 22-30%, Bữa trưa: 35-45%, Bữa tối: 30-38%" + '\n')
     f.write("Cặp thực phẩm không dùng chung: " + " ".join(food_not_use_together) + '\n')
     f.write("Thực phẩm nên tránh: " + ", ".join(known["ListAvoidFood"]) + '\n')
     f.write("Thực phẩm nên ăn: " + ", ".join(known["ListNeedFood"]) + '\n')
-    f.write("hực phẩm cần hạn chế: " +  ", ".join(known["ListLimitFood"]) + '\n')
+    f.write("Thực phẩm cần hạn chế: " +  ", ".join(known["ListLimitFood"]) + '\n')
 
+    print("done")
     f.close()
 
 
