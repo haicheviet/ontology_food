@@ -212,7 +212,7 @@ def JoinFood(breakfast, lunch, dinner):
 
 
 def list_food_not_use_together(list_food, meal):
-    result = None
+    result = set()
     list_food_name = []
     list_food_not_use = {}
 
@@ -230,8 +230,8 @@ def list_food_not_use_together(list_food, meal):
         for key in list_food_not_use:
             for value in list_food_not_use[key]:
                 if value == food:
-                    result = "%s - %s" % (value, key)
-
+                    temp = "%s - %s" % (value, key)
+                    result.add(temp)
     return result
 
 
@@ -279,7 +279,7 @@ def caculate_menu_score_review(menu, list_food):
 
 def main():
     # f = open(data_dir_path + "id_menu.txt", 'r')
-    food_not_use_together = []
+    food_not_use_together = set()
 
     count = 0
     while count <= 13:
@@ -303,8 +303,9 @@ def main():
     percetage_real = [str(item) for item in percetage_real]
 
     for meal in known["RealListFood"]:
-        if list_food_not_use_together(list_food, meal) != None:
-            food_not_use_together.append(list_food_not_use_together(list_food, meal))
+        if list_food_not_use_together(list_food, meal) != set():
+            for item in list_food_not_use_together(list_food, meal):
+                food_not_use_together.add(item)
 
     f = open(data_dir_path + "/result_review.txt", "w", encoding="utf8")
     f.write("Tổng lượng calo của thực đơn: " + str(calo_real) + '\n')
@@ -313,7 +314,7 @@ def main():
     f.write("Tỉ lệ cho 3 bữa: " + " ".join(percetage_real) + '\n')
     if flag == False:
         f.write("Đề xuất: Bữa sáng : 22-30%, Bữa trưa: 35-45%, Bữa tối: 30-38%" + '\n')
-    f.write("Cặp thực phẩm không dùng chung: " + " ".join(food_not_use_together) + '\n')
+    f.write("Cặp thực phẩm không dùng chung: " + ", ".join(food_not_use_together) + '\n')
     f.write("Thực phẩm nên tránh: " + ", ".join(known["ListAvoidFood"]) + '\n')
     f.write("Thực phẩm nên ăn: " + ", ".join(known["ListNeedFood"]) + '\n')
     f.write("Thực phẩm cần hạn chế: " +  ", ".join(known["ListLimitFood"]) + '\n')
