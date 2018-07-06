@@ -35,15 +35,25 @@ with open(rule_dir_path + "/function.txt", "r", encoding="utf8") as f:
         function.append(line)
 
 
-def list_food_create():
+def list_food_create(list_need_food, list_limit_food, list_avoid_food):
     result = {}
     list_all_food = []
-
     tamp_list = [food.split("|") for food in all_food()]
     for food in tamp_list:
         list_all_food.append(food)
     for food in list_all_food:
-        result[food[0]] = food[1:]
+        if food[0] in list_need_food:
+            food.append(2)
+            result[food[0]] = food[1:]
+        elif food[0] in list_limit_food:
+            food.append(0)
+            result[food[0]] = food[1:]
+        elif food[0] in list_avoid_food:
+            food.append(-1)
+            result[food[0]] = food[1:]
+        else:
+            food.append(1)
+            result[food[0]] = food[1:]
     return result
 
 #
@@ -253,10 +263,22 @@ def condittion_percetage(portion):
         return True
     return False
 
+def caculate_menu_score_review(menu, list_food):
+    score_real = 0
+    score_abstract = 0
+    confident = None
+    ideal_score = 2
+    for meal in menu:
+        for food in meal:
+            score_real += list_food[food[0]][3] # food_score
+            score_abstract += ideal_score
+     
+    confident = round(score_real / score_abstract * 100, 2)
+    return confident
+
 
 def main():
     # f = open(data_dir_path + "id_menu.txt", 'r')
-    list_food = list_food_create()
     food_not_use_together = []
 
     count = 0
@@ -269,14 +291,17 @@ def main():
         else:
             # print(extract_rule(data_rule[count]))
             count += 1
-
+    list_food = list_food_create(known["ListNeedFood"], known["ListNeedFood"], known["ListAvoidFood"])
+    menu_score = caculate_menu_score_review(known["RealListFood"], list_food)
     calo_real = caculate_calo(known["RealListFood"])
     percetage_real = portion_meal(known["RealListFood"], calo_real)
+
     if condittion_percetage(percetage_real):
         flag = True
     else:
         flag = False
     percetage_real = [str(item) for item in percetage_real]
+
     for meal in known["RealListFood"]:
         if list_food_not_use_together(list_food, meal) != None:
             food_not_use_together.append(list_food_not_use_together(list_food, meal))
@@ -292,7 +317,7 @@ def main():
     f.write("Thực phẩm nên tránh: " + ", ".join(known["ListAvoidFood"]) + '\n')
     f.write("Thực phẩm nên ăn: " + ", ".join(known["ListNeedFood"]) + '\n')
     f.write("Thực phẩm cần hạn chế: " +  ", ".join(known["ListLimitFood"]) + '\n')
-
+    f.write("Điểm thực đơn: : " +  str(menu_score) + '/100')
     print("done")
     f.close()
 
