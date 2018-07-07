@@ -6,4 +6,5 @@ python query_rdfs.py class_individual('Fruits') #Class_name => class_individual.
 python query_rdfs.py find_food_by_calo(140,150) => food_by_calo.txt
 python query_rdfs.py "function(variable)" => print(function_result) #For testing
 python query_rdfs.py food_calo() => food_and_calo.txt
+python query_rdfs.py menu_list() => menu_list.txt
  

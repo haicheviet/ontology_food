@@ -78,6 +78,14 @@ def food_calo():
             result[content['label']] = content['o']
     return result
 
+def menu_list():
+    result = []
+    for content in search:
+        if content['p'] == "type" and content['o'] == 'Menu':
+            result.append(content['label'])
+
+    return result
+
 #
 # ─── ---- ───────────────────────────────────────────────────────────────────────
 #
@@ -140,7 +148,9 @@ def find_food_by_calo(calor_begin, calo_end):
             if int(value) == calo:
                 result.append(key)
     return result
-#
+
+
+#   
 # ─── --- ────────────────────────────────────────────────────────────────────────
 #
 
@@ -366,6 +376,16 @@ def main_query():
         for illness_name in illness_list:
             if "?" not in illness_name:
                 f.write(str(illness_name) + "\n")
+            else: pass
+        print("done")
+        f.close()
+
+    elif sys.argv[1] == "menu_list()": #print illness_líst
+        menu_list = eval(sys.argv[1])
+        f = open(current_dir + "/search/menu_list.txt", 'w', encoding = 'utf8')
+        for menu_name in menu_list:
+            if "?" not in menu_name:
+                f.write(str(menu_name) + "\n")
             else: pass
         print("done")
         f.close()
