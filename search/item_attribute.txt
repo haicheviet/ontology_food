@@ -1,8 +1,6 @@
-Tên thực phẩm: Cá_chép
-Loại thực phẩm: SeaFood
-Calo : 127/100g
-Những chất dinh dưỡng: Cobalamin_B12, D_Vitamin, Phosphorus, Protein
-Thời điểm thích hợp ăn: Sáng, trưa, tối
-Những loại thực phẩm không ăn chung: Thịt_chó
-Cách chế biến: Nướng, hầm, chiên, luộc
-Những bệnh không nên dùng thực phẩm này: 
+Có thông tin: height: 32, wwight:3333
+Có buổi sáng: (Thịt_gà, 324, 332), (Thịt_chó, 33, 44)
+Có buổi trưa: (Thịt_gà, 324, 332), (Thịt_chó, 33, 44)
+Có buổi tối: (Thịt_gà, 324, 332), (Thịt_gà, 33, 44)
+Tên người tạo: Hai
+Điểm menu: 65.0

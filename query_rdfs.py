@@ -132,6 +132,20 @@ def nutrient_attribute(label):
             result[content['p']] = (content['o'])
     return result
 
+def menu_attribute(label):
+    result = {}
+
+    for content in search:
+        if content["label"] == label and content['p'] == "type" and content['o'] != "NamedIndividual":
+            result["type"] = content['o']
+            target_index = search.index(content)
+            text_tamp_next = search[target_index:]
+
+    for content in text_tamp_next:
+        if content["label"] == label:
+            result[content['p']] = (content['o'])
+    return result
+
 def class_individual(class_label):
     result = []
     for content in search:
@@ -323,6 +337,8 @@ def list_structure_lunch(list_food):
 
 def main_query():
     food, nutrient =  food_nutrient()
+    menu = menu_list()
+
     if sys.argv[1] == "food_nutrient()":
         food, nutreint = eval(sys.argv[1])
         f = open(current_dir + "/search/food.txt", 'w', encoding = 'utf8')
@@ -370,6 +386,23 @@ def main_query():
         f.close()
         print("done")
 
+    elif sys.argv[1] in menu:
+        command = "menu_attribute('%s')" %sys.argv[1]
+        result = eval(command)
+        try:
+            f = open(current_dir + "/search/item_attribute.txt", 'w', encoding = 'utf8')
+            f.write("Có thông tin: " + str(result['Has_Infomation']) + '\n')
+            f.write("Có buổi sáng: " + str(result['Has_Breakfast_Menu']) + '\n')
+            f.write("Có buổi trưa: " + result['Has_Lunch_Menu'] + '\n')
+            f.write("Có buổi tối: " + result['Has_Dinner_Menu'] + '\n')
+            f.write("Tên người tạo: "+ result['Has_name_user'] + '\n')
+            f.write("Điểm menu: " +  str(result['Has_Score']) + '\n')
+        except:
+            pass
+
+        f.close()
+        print("done")
+
     elif sys.argv[1] == "illness_list()": #print illness_líst
         illness_list = eval(sys.argv[1])
         f = open(current_dir + "/search/disease.txt", 'w', encoding = 'utf8')
@@ -381,9 +414,9 @@ def main_query():
         f.close()
 
     elif sys.argv[1] == "menu_list()": #print illness_líst
-        menu_list = eval(sys.argv[1])
+        menu_list_tamp = eval(sys.argv[1])
         f = open(current_dir + "/search/menu_list.txt", 'w', encoding = 'utf8')
-        for menu_name in menu_list:
+        for menu_name in menu_list_tamp:
             if "?" not in menu_name:
                 f.write(str(menu_name) + "\n")
             else: pass
