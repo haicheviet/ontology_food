@@ -410,6 +410,7 @@ if __name__ == "__main__":
         # print("ss")
         data.write(str(known['BMIlevel']) + '\n' + str(known['BMRvalue']) + '\n' + str(known["CaloPerDay"]))
         print("--------------------------------")
+        print(known)
         data.close()
         print("done")
 

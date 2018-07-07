@@ -227,6 +227,8 @@ def avoided_group_food(illness):
     for content in search:
         if content["label"] == illness and content["p"] == "Avoid_Group_Food":
             group_food .append(content["o"])
+        if content["label"] == illness and content["p"] == "Avoid_Food":
+            result.append(content["o"])
     for food_item in group_food:
         for content in search:
             if content["label"] == food_item and content["p"] == "Has_Food":

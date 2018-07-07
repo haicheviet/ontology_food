@@ -99,7 +99,7 @@ def insert_menu(date, input_menu, root_file):
         <ont:Has_Score rdf:datatype="&xsd;float">{}</ont:Has_Score>
         <ont:Has_Dinner_Menu rdf:datatype="&xsd;string">{}</ont:Has_Dinner_Menu>
         <ont:Has_name_user rdf:datatype="&xsd;string">{}</ont:Has_name_user>
-        <ont:Has_Lunch_Menu rdf:datatype="&xsd;string">What up bro</ont:Has_Lunch_Menu>
+        <ont:Has_Lunch_Menu rdf:datatype="&xsd;string">{}</ont:Has_Lunch_Menu>
         <ont:Has_Infomation rdf:datatype="&xsd;string">{}</ont:Has_Infomation>
         <ont:Has_Breakfast_Menu rdf:datatype="&xsd;string">{}</ont:Has_Breakfast_Menu>
     </NamedIndividual>
@@ -132,7 +132,7 @@ if __name__ == "__main__":
         menu = json.load(menu_data)
     time = strftime("%m-%d.%H:%M", localtime())
 
-    root_file = current_dir + "/data_raw/rdf-copy.owl"
+    root_file = current_dir + "/data_raw/rdf.owl"
     if sys.argv[1] == 'food':
         insert_individual_food(
             food["name"], food['type'], food['calo'], food['Has_Nutrient'],

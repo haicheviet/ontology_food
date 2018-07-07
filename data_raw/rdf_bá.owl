@@ -986,7 +986,9 @@
 
     <NamedIndividual rdf:about="&ont;Bệnh_gút">
         <rdf:type rdf:resource="&ont;Illness"/>
+        <ont:Need_Food rdf:resource="&ont;Bơ"/>
         <ont:Need_Group_Food rdf:resource="&ont;Giàu_chất_xơ"/>
+        <ont:Need_Food rdf:resource="&ont;Hạnh_nhân"/>
         <ont:Limit_Group_Food rdf:resource="&ont;Thực_phẩm_nhiều_đạm"/>
     </NamedIndividual>
     
@@ -996,7 +998,19 @@
 
     <NamedIndividual rdf:about="&ont;Bệnh_suy_dinh_dưỡng">
         <rdf:type rdf:resource="&ont;Illness"/>
+        <ont:Need_Food rdf:resource="&ont;Cua"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_bò"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_chua"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_cừu"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_dê"/>
+        <ont:Need_Food rdf:resource="&ont;Thịt_bò"/>
+        <ont:Need_Food rdf:resource="&ont;Thịt_gà"/>
+        <ont:Need_Food rdf:resource="&ont;Thịt_gà_tây"/>
+        <ont:Need_Food rdf:resource="&ont;Thịt_heo"/>
         <ont:Need_Group_Food rdf:resource="&ont;Thực_phẩm_nhiều_tinh_bột"/>
+        <ont:Need_Food rdf:resource="&ont;Trứng_gà"/>
+        <ont:Need_Food rdf:resource="&ont;Trứng_ngỗng"/>
+        <ont:Need_Food rdf:resource="&ont;Trứng_vịt"/>
     </NamedIndividual>
     
 
@@ -1007,6 +1021,13 @@
         <rdf:type rdf:resource="&ont;Illness"/>
         <ont:Need_Food rdf:resource="&ont;Cà_chua"/>
         <ont:Need_Food rdf:resource="&ont;Cà_rốt"/>
+        <ont:Need_Food rdf:resource="&ont;Cà_tím"/>
+        <ont:Need_Food rdf:resource="&ont;Cá_chép"/>
+        <ont:Need_Food rdf:resource="&ont;Cá_hồi"/>
+        <ont:Need_Food rdf:resource="&ont;Cá_ngừ"/>
+        <ont:Need_Food rdf:resource="&ont;Cá_đuối"/>
+        <ont:Need_Food rdf:resource="&ont;Cần_tây"/>
+        <ont:Need_Food rdf:resource="&ont;Măng"/>
         <ont:Need_Group_Food rdf:resource="&ont;Quả_mọng"/>
         <ont:Limit_Group_Food rdf:resource="&ont;Thủy_hải_sản"/>
         <ont:Avoid_Group_Food rdf:resource="&ont;Thức_phẩm_quá_ngọt"/>
@@ -1021,6 +1042,10 @@
     <NamedIndividual rdf:about="&ont;Bệnh_tiểu_đường">
         <rdf:type rdf:resource="&ont;Illness"/>
         <ont:Need_Food rdf:resource="&ont;Sữa_bò"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_chua"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_cừu"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_dê"/>
+        <ont:Need_Food rdf:resource="&ont;Sữa_đặc"/>
         <ont:Need_Food rdf:resource="&ont;Thịt_bò"/>
         <ont:Need_Group_Food rdf:resource="&ont;Thủy_hải_sản"/>
         <ont:Avoid_Group_Food rdf:resource="&ont;Trái_cây_ngọt"/>
@@ -1540,7 +1565,6 @@
         <ont:Has_Food rdf:resource="&ont;Bắp_cải"/>
         <ont:Has_Food rdf:resource="&ont;Cà_chua"/>
         <ont:Has_Food rdf:resource="&ont;Dưa_leo"/>
-        <ont:Has_Food rdf:resource="&ont;Peanut"/>
         <ont:Has_Food rdf:resource="&ont;Trái_Bơ"/>
         <ont:Has_Food rdf:resource="&ont;Táo"/>
     </NamedIndividual>
@@ -1991,15 +2015,6 @@
         <ont:Has_effect rdf:datatype="&xsd;string">Giúp biến đổi thức ăn thành năng lượng. Giúp cấu tạo lipids, steroid hormones, các chất dẫn truyền thần kinh, huyết sắc tố</ont:Has_effect>
         <ont:Has_lack_of_sb_effect rdf:datatype="&xsd;string">Nhức đầu, mỏi mệt, chóng mặt, rụng tóc, buồn nôn và sự khó chịu trong dạ dày</ont:Has_lack_of_sb_effect>
         <ont:Has_exceed_effect rdf:datatype="&xsd;string">Tiếu chảy và có thể gia tăng nguy cơ bị chảy máu</ont:Has_exceed_effect>
-    </NamedIndividual>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Peanut -->
-
-    <NamedIndividual rdf:about="&ont;Peanut">
-        <rdf:type rdf:resource="&ont;Cereal"/>
-        <ont:Has_calo rdf:datatype="&xsd;int">140</ont:Has_calo>
     </NamedIndividual>
     
 
@@ -2483,7 +2498,6 @@
         <ont:Has_Nutrient rdf:resource="&ont;Cobalamin_B12"/>
         <ont:Has_Nutrient rdf:resource="&ont;Fat_Chất_béo"/>
         <ont:Has_Nutrient rdf:resource="&ont;Niacin_B3"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Peanut"/>
         <ont:Has_Nutrient rdf:resource="&ont;Phosphorus"/>
         <ont:Has_Nutrient rdf:resource="&ont;Protein"/>
         <ont:Has_Nutrient rdf:resource="&ont;Pyridoxine_B6"/>
@@ -2655,7 +2669,6 @@
         <ont:Has_Food rdf:resource="&ont;Bánh_mì"/>
         <ont:Has_Food rdf:resource="&ont;Khoai_mì"/>
         <ont:Has_Food rdf:resource="&ont;Khoai_tây"/>
-        <ont:Has_Food rdf:resource="&ont;Peanut"/>
     </NamedIndividual>
     
 
