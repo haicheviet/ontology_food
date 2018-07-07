@@ -2,7 +2,10 @@ Bệnh_béo_phì
 Bệnh_gan
 Bệnh_gút
 Bệnh_suy_dinh_dưỡng
+Bệnh_thận
 Bệnh_tim_và_huyết_áp
 Bệnh_tiểu_đường
 Bệnh_xương_khớp
+Bệnh_đường_tiêu_hóa
 Khỏe_mạnh
+Thai_phụ
