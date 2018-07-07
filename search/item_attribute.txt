@@ -1,6 +1,8 @@
-Tên chất dinh dưỡng: A_Vitamin
-Loại chất dinh dưỡng: Vitamins
-Tác dụng: Tăng sức đề kháng, bảo vệ mắt, chống ung thư, da trẻ
-Ảnh hưởng khi thừa: Buồn nôn, vàng da, gây hại cho thai nhi	
-Ảnh hưởng khi thiếu: Triệu chứng quáng gà, khô mắt, đục thủy tinh thể, có thể gây mù mắt do bệnh khô mắt, răng yếu mau hỏng, da khô có vẩy, tóc khô giòn, cơ thể dễ bị nhiễm khuẩn, xương chậm phát triển
-Những món ăn có chất dinh dưỡng này: Bí_đỏ, Bưởi, Bạc_hà, Cam, Cà_chua, Cà_rốt, Cá_ngừ, Cần_tây, Dưa_hấu, Hẹ, Khổ_qua, Kiwi, Lươn, Quýt, Rau_dền, Rau_muống, Salad, Trứng_ngỗng, Trứng_vịt, Tôm, Xoài, Đu_Đủ, Đậu_hà_lan, Ổi
+Tên thực phẩm: Cá_chép
+Loại thực phẩm: SeaFood
+Calo : 127/100g
+Những chất dinh dưỡng: Cobalamin_B12, D_Vitamin, Phosphorus, Protein
+Thời điểm thích hợp ăn: Sáng, trưa, tối
+Những loại thực phẩm không ăn chung: Thịt_chó
+Cách chế biến: Nướng, hầm, chiên, luộc
+Những bệnh không nên dùng thực phẩm này: 

@@ -122,11 +122,13 @@ def FindLimitFood(list_illness):
 
 
 def FilterFood(list_avoid_food, list_need_food,
-               list_limit_food):
+               list_limit_food, list_unlike_food):
     result = {}
     list_all_food = []
     tamp_list = [food.split("|") for food in all_food()]
     set_avoid_food = set(list_avoid_food)
+    for item in list_unlike_food:
+        set_avoid_food.add(item)
     for food in tamp_list:
         if food[0] not in set_avoid_food:
             list_all_food.append(food)
@@ -140,7 +142,7 @@ def FilterFood(list_avoid_food, list_need_food,
         else:
             food_1.append(1)
             result[food_1[0]] = food_1[1:]
-    return result
+    return result 
 
 #
 # ─── --- ────────────────────────────────────────────────────────────────────────

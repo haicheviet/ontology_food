@@ -11,7 +11,7 @@
 [1,ListIllness]|[ListAvoidFood,funct:FindAvoidFood(known["ListIllness"])]
 [1,ListIllness]|[ListNeedFood,funct:FindNeedFood(known["ListIllness"])]
 [1,ListIllness]|[ListLimitFood,funct:FindLimitFood(known["ListIllness"])]
-[1,ListAvoidFood],[1,ListNeedFood],[1,ListLimitFood],[AllFood]|[ListFood,funct:FilterFood(known["ListAvoidFood"], known["ListNeedFood"], known["ListLimitFood"])]
+[1,ListAvoidFood],[1,ListNeedFood],[1,ListLimitFood],[1,UnLikeFood],[AllFood]|[ListFood,funct:FilterFood(known["ListAvoidFood"], known["ListNeedFood"], known["ListLimitFood"], known["UnLikeFood"])]
 [1,ListFood],[1,CaloForEachMeal],[ListStructureOfBreakFast]|[ListBreakFast,funct:FindListBreakFast(known["ListFood"])]
 [1,ListFood],[1,CaloForEachMeal],[ListStructureOfLunch]|[ListLunch,funct:FindListLunch(known["ListFood"])]
 [1,ListFood],[1,CaloForEachMeal],[ListStructureOfDinner]|[ListDinner,funct:FindListDinner(known["ListFood"])]

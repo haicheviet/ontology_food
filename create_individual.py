@@ -49,7 +49,6 @@ def insert_individual_food(
             index = template.find('</NamedIndividual>')
             template = template[:index] + line_nutrient + template[index:]
 
-        print(template)
         if len(lines) > int(line_to_replace):
             lines[line_to_replace] = template
 
