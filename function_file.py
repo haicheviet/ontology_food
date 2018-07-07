@@ -35,6 +35,7 @@ def food_not_use_together(list_food, meal):
                     map(lambda x: x.replace("'", ""), food_not_use))
                 for item in food_not_use:
                     list_food_not_use.add(item.strip())
+    # print(list_food_name,  "list_food_not_use", list_food_not_use)
     for food in list_food_name:
         if food in list_food_not_use:
             return False

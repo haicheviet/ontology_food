@@ -2319,7 +2319,6 @@
         <ont:Has_Nutrient rdf:resource="&ont;Protein"/>
         <ont:Not_Use_Together rdf:resource="&ont;Trứng_gà"/>
         <ont:Not_Use_Together rdf:resource="&ont;Trứng_ngỗng"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Trứng_vịt"/>
     </NamedIndividual>
     
 
@@ -2340,7 +2339,6 @@
         <ont:Has_suitable_time rdf:datatype="&xsd;string">Sáng, trưa, tối</ont:Has_suitable_time>
         <ont:Has_processing rdf:datatype="&xsd;string">Uống chín....</ont:Has_processing>
         <ont:Not_Use_Together rdf:resource="&ont;Cam"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Trứng_gà"/>
         <ont:Not_Use_Together rdf:resource="&ont;Trứng_ngỗng"/>
         <ont:Not_Use_Together rdf:resource="&ont;Trứng_vịt"/>
     </NamedIndividual>
@@ -2356,7 +2354,6 @@
         <ont:Has_processing rdf:datatype="&xsd;string">Uống chín...</ont:Has_processing>
         <ont:Not_Use_Together rdf:resource="&ont;Cam"/>
         <ont:Not_Use_Together rdf:resource="&ont;Trứng_gà"/>
-        <ont:Not_Use_Together rdf:resource="&ont;Trứng_ngỗng"/>
         <ont:Not_Use_Together rdf:resource="&ont;Trứng_vịt"/>
     </NamedIndividual>
     

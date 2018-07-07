@@ -231,8 +231,9 @@ def FindListBreakFast(data):
                     break
                 else:  # pick three foods have best score
                     best_food.append(units)
+            # print("best_food", best_food)
             combination = nCi(best_food, rule[1])
-            # print(combination)
+            # print(len(combination))
             for index, element_combination in enumerate(combination):
                 tamp = {}
                 for food_name in element_combination:
