@@ -391,12 +391,12 @@ def main():
             count += 1
     # print("------------------")
     # print('known: ', known)
-    print("--------------------")
+    # print("--------------------")
     breakfast_list = FindListBreakFast(known)
     lunch_list = FindListLunch(known)
     dinner_list = FindListDinner(known)
-    print("rong", breakfast_list,'\n', lunch_list,"\n", dinner_list)
-    print("--------------------------------")
+    # print("rong", breakfast_list,'\n', lunch_list,"\n", dinner_list)
+    # print("--------------------------------")
     menu = JoinMeal(breakfast_list, lunch_list, dinner_list, known["ListFood"])
     result = random.choice(menu[0:7000])
     return result
