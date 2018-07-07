@@ -1,8 +1,1 @@
-{
-    "Breakfast": "(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)",
-    "Lunch": "(Thịt_gà, 324, 332), (Thịt_chó, 33, 44)",
-    "Dinner": "(Thịt_gà, 324, 332), (Thịt_gà, 33, 44)",
-    "Has_name": "Hai",
-    "Has_information": "height: 32, wwight:3333",
-    "Score": 65
-}
+{"Breakfast":"(Hạnh_nhân, 104.61, 18.1),(Bắp, 104.61, 121.6),(Bơ, 183.06, 25.6),(Chanh, 130.76, 450.9)","Score":"58.33 ","Dinner":"(Cá_chép, 102.6, 80.8),(Bạc_hà, 68.4, 97.7),(Bưởi, 170.99, 407.1),(Cơm, 341.99, 167.6)","Has_information":"height: 165.0, weight: 65.0","Has_name":"a","Lunch":"(Lươn, 120.7, 65.6),(Atiso, 80.47, 171.2),(Sữa_bò, 201.17, 287.4),(Cơm, 402.33, 197.2)"}
