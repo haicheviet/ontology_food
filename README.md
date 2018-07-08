@@ -13,6 +13,7 @@ for best experience
 - Download all the package in [package](lib_for_project) 
 - Copy these packages into your python library 
 - Exemple path if you install python from anaconda: C:\Users\hai che viet\Anaconda3\Lib\site-packages\
+* Read these text file from [instruction](instruction) for how to execute py file
 
 
 # Overview
