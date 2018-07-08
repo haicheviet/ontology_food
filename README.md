@@ -5,11 +5,11 @@ Ontology project that query and analyze food_menu for healthy people.
 The objective of this project is to use ontology and rdflib such as sparql to query information from food_rdfs
 
 # Install instruction
-* Open file requirement.txt for libs require
+* Install python 3.x
+* Pip file requirement.txt for libs require
 * Install java development kit:
 - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-* Note: Cause we output from vietname_food so we have to encode into vietnamese word. Download our package after modified 
-for best experience 
+* Note: Cause we output from vietname_food so we have to encode into vietnamese word. Download our package after modified for best experience 
 - Download all the package in [package](lib_for_project) 
 - Copy these packages into your python library 
 - Exemple path if you install python from anaconda: C:\Users\hai che viet\Anaconda3\Lib\site-packages\
