@@ -1,3 +1,2 @@
 python 3.x
 rdflib
-owlready2
