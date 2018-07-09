@@ -1230,14 +1230,6 @@
     
 
 
-    <!-- http://www.co-ode.org/ontologies/ont.owl#Coconut -->
-
-    <NamedIndividual rdf:about="&ont;Coconut">
-        <rdf:type rdf:resource="&ont;Cereal"/>
-    </NamedIndividual>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#Copper_Đồng -->
 
     <NamedIndividual rdf:about="&ont;Copper_Đồng">
